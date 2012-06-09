@@ -11,12 +11,12 @@
 	    		console.log('init stargModuler');
 
 	    		var t=iGuess.stargModuler;
-	    		 iGuess.socket.on('getRid',t.initUid);
+	    		 iGuess.socket.on('getUid',t.initUid);
 	    		 iGuess.socket.on('getRid',t.initUrl);
 	    		 iGuess.socket.on('join',t.updateJoinList);
 
 	    		 iGuess.socket.send({type:'getUid'});
-	    		 iGuess.socket.send({type:'getRid'});
+	    		
 	    		 iGuess.socket.on('start',t.getResFromStart);
 	    		 $('.carousel').carousel({
   					interval: 2000
@@ -30,18 +30,38 @@
 	    	},
 	    	fnStart:function(e){
 	    		console.log('star game');
-	    		iGuess.socket.send({type:'start'});
+	    		var uid=iGuess.model.getUid();
+	    		iGuess.socket.send({type:'start',param:{uid:uid}});
 
 	    	},
+	    	getHttpParams:function(name){
+			var r = new RegExp("(\\?|#|&)"+name+"=([^&#]*)(&|#|$)");
+			var m = location.href.match(r);
+			return decodeURIComponent(!m?"":m[2]).replace(/\+/g," ");
+			},
 	    	initUid: function(data){
 	    		console.log('initUid');
 	    		console.log(data);
+	    		var t=iGuess.stargModuler;
 	    		var uid=data.returnData.userInfo.uid;
 	    		iGuess.model.setUid(uid);
+	    		if(location.href.indexOf('?rid')>0){
+	    			
+	    			//iGuess.wait.show();
+	    			var rid=t.getHttpParams('rid');
+	    			iGuess.socket.send({type:'join',param:{rid:rid,uid:uid}});
+
+	    		}else{
+	    			iGuess.socket.send({type:'getRid',param:{uid:uid}});
+	    		}
+	    		
+
 	    	},
 	    	initUrl:function(data){
-	    		var item=data;
-	    		$('#urlInput')[0].value='http://iguess.com/index.html?rid='+item.rid;
+
+	    		var item=data.returnData;
+
+	    		$('#urlInput')[0].value='http://10.66.45.39/~azrael/iGuess/index.html?rid='+item.rid;
 
 	    	},
 	    	updateJoinList:function(data){
@@ -69,6 +89,10 @@
 	    		}
 
 	    		ulList.append(html);
+
+	    		if(iGuess.model.getUid()!=data.returnData.rUid){
+	    			iGuess.wait.show(iGuess.model.getUid());
+	    		}
 
 	    	},
 	    	getUserImgUrl:function(uid){
