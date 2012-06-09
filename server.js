@@ -22,9 +22,11 @@ var users = {};
 var rooms = {};
 var returnCode = {
 	"succ":{"code": 0, "msg": "succ"},
+	"error":{"code": 1, "msg": "error"}
 };
 var onMessage = {
 	'getUid': function(socket, data){
+		var type = data.type;
 		var user = User.selectUser();
 		user.socket = socket;
 		user.login = true;
@@ -35,6 +37,7 @@ var onMessage = {
 		socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 	},
 	'getRid': function(socket, data){
+		var type = data.type;
 		var _uid = data.param.uid;
 		user = User.selectUser(_uid);
 		room = new Room(user);
@@ -45,6 +48,7 @@ var onMessage = {
 		socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 	},
     'join': function(socket, data){
+		var type = data.type;
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
 		room = Room.selectRoom(_rid);
@@ -58,7 +62,33 @@ var onMessage = {
 			data["userList"][j]["nick"] = room.users[i].nick;
 			j++;
 		}
-		socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+		for(var i in room.users){
+			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+		}
+	},
+	'start': function(socket, data){
+		var type = data.type;
+		var _uid = data.param.uid;
+		var _rid = data.param.rid;
+		var data = {};
+		room = Room.selectRoom(_rid);
+		if(_uid != room.rUid){
+			socket.emit('message',  respond(returnCode.error.code, returnCode.error.msg, type, data));
+			return false;
+		}
+		room.game
+		var data = {
+			"rUid":room.rUid,
+		};
+		var j = 0;
+		for(var i in room.users){
+			data["userList"][j]["uid"] = room.users[i].id;
+			data["userList"][j]["nick"] = room.users[i].nick;
+			j++;
+		}
+		for(var i in room.users){
+			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+		}
 	}
 };
 
@@ -94,7 +124,6 @@ function respond(code, msg, type, data){
 		"returnData":data,
 	};
 	return pkg;
-	//return JSON.stringify(pkg);
 }
 function User(){
 	this.id = uid++;
@@ -117,6 +146,7 @@ User.selectUser = function(uid){
 };
 
 function Room(user){
+	this.maxNum = 5;
 	this.roomId = rid++;
 	this.rUid = user.id;
 	this.lock = 0;
@@ -127,4 +157,12 @@ function Room(user){
 
 Room.selectRoom = function(rid){
 	return rooms[rid];
+}
+
+function Game(){
+	this.totalRound = 10;
+	this.round = 1;
+	this.question = {};
+	this.qUid = null;
+	this.gUid = null;
 }
