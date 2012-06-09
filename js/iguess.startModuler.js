@@ -9,24 +9,39 @@
 				].join(''),
 	    	init:function(){
 	    		console.log('init stargModuler');
+
 	    		var t=iGuess.stargModuler;
-	    		 iGuess.socket.on('getuid',t.initUid);
-	    		 iGuess.socket.on('getrid',t.initUrl);
+	    		 iGuess.socket.on('getRid',t.initUid);
+	    		 iGuess.socket.on('getRid',t.initUrl);
 	    		 iGuess.socket.on('join',t.updateJoinList);
 
-	    		 iGuess.socket.send({type:'getuid'});
-	    		 iGuess.socket.send({type:'getrid'});
+	    		 iGuess.socket.send({type:'getUid'});
+	    		 iGuess.socket.send({type:'getRid'});
+	    		 iGuess.socket.on('start',t.getResFromStart);
+	    		 $('.carousel').carousel({
+  					interval: 2000
+				})
+	    		$('#btn_start').bind('click',t.fnStart);
+
+	    	},
+	    	getResFromStart:function(res){
+	    		console.log('get res');
+	    		console.log(res);
+	    	},
+	    	fnStart:function(e){
+	    		console.log('star game');
+	    		iGuess.socket.send({type:'start'});
 
 	    	},
 	    	initUid: function(data){
-	    		
+	    		console.log('initUid');
+	    		console.log(data);
+	    		var uid=data.returnData.userInfo.uid;
+	    		iGuess.model.setUid(uid);
 	    	},
 	    	initUrl:function(data){
 	    		var item=data;
 	    		$('#urlInput')[0].value='http://iguess.com/index.html?rid='+item.rid;
-
-	    	},
-	    	initUid:function(data){
 
 	    	},
 	    	updateJoinList:function(data){
@@ -37,13 +52,14 @@
 	    			console.log('updateJoinList error');
 	    			return ;
 	    		}
+	    		/*
 	    		console.log('updateJoinList data=');
 	    		console.log(data);
 	    		
 	    		var data={};
 				data.returnData={};
 				data.returnData.userList=[{uid:1,nick:'jim'},{uid:2,nick:'jack'}];
-				
+				*/
 
 	    		var dataList=data.returnData.userList;
 	    		var html='';
