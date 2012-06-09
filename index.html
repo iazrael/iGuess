@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html manifest="%manifest%">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>iGuess</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+
+<div id="wrapper" class="wrapper">
+    
+</div>
+
+<script id="templateDemo1" type="text/plain" >
+    <% for(var i = 0, item; item = list[i]; i++) { %>
+        <div><%=item.id%></div>
+    <% }   %>
+</script>
+
+<script src="js/ztool.all.js" ></script>
+<script src="js/jquery.js" ></script>
+<script src="js/jquery.websocket.js" ></script>
+
+<script src="js/iguess.index.js" ></script>
+<script src="js/iguess.socket.js" ></script>
+<script src="js/iguess.ui.js" ></script>
+<script src="js/iguess.util.js" ></script>
+<script src="js/iguess.start.js" ></script>
+
+

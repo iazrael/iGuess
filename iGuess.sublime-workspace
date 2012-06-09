@@ -1,0 +1,1080 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"box-s",
+				"box-shadow"
+			],
+			[
+				"background-tr",
+				"background-position:   (property)"
+			],
+			[
+				"webkit-tr",
+				"-webkit-transition:   (property)"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"lo",
+				"localStorage"
+			],
+			[
+				"loc",
+				"localStorageInput"
+			],
+			[
+				"be",
+				"before-name"
+			],
+			[
+				"bef",
+				"before-element"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"re",
+				"regexMatchs"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"z",
+				"z-index: ${1001:$SELECTION};"
+			],
+			[
+				"op",
+				"opacity:   (property)"
+			],
+			[
+				"cla",
+				"classList"
+			],
+			[
+				"li",
+				"link"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"_img",
+				"_image"
+			],
+			[
+				"th",
+				"that"
+			],
+			[
+				"_res",
+				"_resizeBody"
+			],
+			[
+				"_im",
+				"_imgSize"
+			],
+			[
+				"margin",
+				"_margin"
+			],
+			[
+				"res",
+				"_resize"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"in",
+				"innerHeight  (variable)"
+			],
+			[
+				"webkit-trf",
+				"-webkit-transform:   (property)"
+			],
+			[
+				"string",
+				"STRING_MODE"
+			],
+			[
+				"nor",
+				"NORMAL_MODE"
+			],
+			[
+				"elemen",
+				"ELEMENT_MODE"
+			],
+			[
+				"elem",
+				"ELEMENT_START"
+			],
+			[
+				"ele",
+				"ELEMENT_END"
+			],
+			[
+				"fl",
+				"FLAGS"
+			],
+			[
+				"t",
+				"TEXT_NODE  (variable)"
+			],
+			[
+				"text",
+				"Text"
+			],
+			[
+				"getElem",
+				"getElementsByTagName"
+			],
+			[
+				"tag",
+				"tagName"
+			],
+			[
+				"lef",
+				"left-column"
+			],
+			[
+				"right",
+				"right-column"
+			],
+			[
+				"bo",
+				"bodyHeight"
+			],
+			[
+				"body",
+				"bodyWidth"
+			],
+			[
+				"inn",
+				"innerWidth  (variable)"
+			],
+			[
+				"toggl",
+				"toggleClass  (function)"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"cont",
+				"container"
+			],
+			[
+				"login",
+				"loginStatus"
+			],
+			[
+				"background-position-",
+				"background-position-x"
+			],
+			[
+				"background-pos",
+				"-ms-background-position-x:   (property)"
+			],
+			[
+				"pa",
+				"pagination"
+			],
+			[
+				"ond",
+				"ONE_DAY"
+			],
+			[
+				"endatword",
+				"endAtWordEnd"
+			],
+			[
+				"endatwo",
+				"endAtWordStart"
+			],
+			[
+				"startat",
+				"startAtWordStart"
+			],
+			[
+				"start",
+				"startContainer"
+			],
+			[
+				"user",
+				"userData"
+			],
+			[
+				"us",
+				"userData"
+			],
+			[
+				"storag",
+				"Storage"
+			],
+			[
+				"error",
+				"ERROR_CODE"
+			],
+			[
+				"log",
+				"loginUser"
+			],
+			[
+				"pw",
+				"password"
+			],
+			[
+				"ver",
+				"vertical-align"
+			],
+			[
+				"webkit-transi",
+				"-webkit-transition-duration:   (property)"
+			],
+			[
+				"pac",
+				"packageContext"
+			],
+			[
+				"pro",
+				"prompt"
+			],
+			[
+				"is",
+				"isOffline"
+			],
+			[
+				"cur",
+				"currentPage"
+			],
+			[
+				"curr",
+				"currentDate"
+			],
+			[
+				"date",
+				"dateStr"
+			],
+			[
+				"pack",
+				"packageContext"
+			],
+			[
+				"d",
+				"div"
+			],
+			[
+				"add",
+				"addBill"
+			],
+			[
+				"che",
+				"checked  (function)"
+			],
+			[
+				"get",
+				"getParents"
+			],
+			[
+				"getCate",
+				"getCategoryList"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"over",
+				"overflow-y:   (property)"
+			],
+			[
+				"qu",
+				"queryString"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"getCategoryListSucc",
+				"getCategoryListSuccess"
+			],
+			[
+				"ca",
+				"cateList"
+			],
+			[
+				"system",
+				"systemReady"
+			],
+			[
+				"b",
+				"BillList"
+			],
+			[
+				"background",
+				"background	background: color image repeat attachment position"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/jquery.websocket.js",
+			"settings":
+			{
+				"buffer_size": 1259,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 597,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/iguess.socket.js",
+			"settings":
+			{
+				"buffer_size": 49,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/iguess.util.js",
+			"settings":
+			{
+				"buffer_size": 48,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/iguess.ui.js",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/iguess.start.js",
+			"settings":
+			{
+				"buffer_size": 49,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
+			"settings":
+			{
+				"buffer_size": 941,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/iguess.index.js",
+			"settings":
+			{
+				"buffer_size": 94,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"prefi",
+				"Preferences: Prefixr Key Bindings – User"
+			],
+			[
+				"Prefixr",
+				"Preferences: Prefixr Key Bindings – User"
+			],
+			[
+				"instalp",
+				"Package Control: Install Package"
+			],
+			[
+				"comm",
+				"Git: Quick Commit"
+			],
+			[
+				"gitc",
+				"Git: Commit"
+			],
+			[
+				"gitst",
+				"Git: Status"
+			],
+			[
+				"git:c",
+				"Git: Commit"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Function"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"git:in",
+				"Git: Diff Current File"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"remoe pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"todo",
+				"Set Syntax: iTodo"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"packag",
+				"Package Control: Disable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 565.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.start.js",
+		"/Users/azrael/Desktop/iGuess/js/jquery.websocket.js",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/azrael/Desktop/blog/imatlas.blog.js",
+		"/Users/azrael/Desktop/blog/imatlas.all.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.base.js",
+		"/Users/azrael/Desktop/xmlparser/ztool.all.uncompressed.js",
+		"/Users/azrael/Sites/test/test.html",
+		"/Users/azrael/Dropbox/menu/test.html",
+		"/Users/azrael/Dropbox/menu/myslidebgmenu/slidebgmenu.html",
+		"/Users/azrael/Dropbox/menu/slidebgmenu.html",
+		"/Users/azrael/Dropbox/menu/myslidebgmenu/index.html",
+		"/Users/azrael/Dropbox/menu/myslidebgmenu/myslidebgnav.js",
+		"/Users/azrael/Dropbox/menu/myslidebgmenu/style2.css",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.ui.Loading.js",
+		"/Users/azrael/Sites/tallybook2/zTool/build.xml",
+		"/Users/azrael/Sites/tallybook2/zTool/test/z.ui.ImageViewer.html",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.dom.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.ui.ImageViewer.js",
+		"/Users/azrael/Sites/tallybook2/zTool/style/z.ui.ImageLoader.css",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/azrael/Sites/tallybook2/zTool/style/z.ui.Loading.css",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/box-sizing.sublime-snippet",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/border-radius.sublime-snippet",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/Prefixr/Default (OSX).sublime-keymap",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/azrael/Sites/tallybook2/zTool/test/z.ui.Loading.html",
+		"/Users/azrael/Sites/tallybook2/zTool/test/z.ui.Loading.css",
+		"/Users/azrael/Desktop/clock/clock.css",
+		"/Users/azrael/Desktop/clock/full-css3-clock.html",
+		"/Users/azrael/Desktop/clock/clock.html",
+		"/Users/azrael/Desktop/xmlparser/test.html",
+		"/Users/azrael/Desktop/xmlparser/xmlparser.js",
+		"/Users/azrael/Dropbox/Default (Windows).sublime-keymap",
+		"/Users/azrael/Downloads/RegQuick/manifest.json",
+		"/Users/azrael/Desktop/css_viewer/cssparser.js",
+		"/Users/azrael/Downloads/res/readme.md",
+		"/Users/azrael/Desktop/copyfree/manifest.json",
+		"/Users/azrael/Desktop/copyfree/build 2/manifest.json",
+		"/Users/azrael/Desktop/copyfree/build.xml",
+		"/Users/azrael/Desktop/Test/test.html",
+		"/Users/azrael/Desktop/copyfree/background.js",
+		"/Users/azrael/Desktop/copyfree/content.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.util.Collection.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.array.js",
+		"/Users/azrael/Desktop/Test/extend.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.util.js",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.net.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.class.js",
+		"/Users/azrael/Sites/tallybook2/public/index.html",
+		"/Users/azrael/Sites/tallybook2/build.xml",
+		"/Users/azrael/Sites/tallybook2/zTool/ztool.all.uncompressed.js",
+		"/Users/azrael/Sites/tallybook2/zTool/publish.sh",
+		"/Users/azrael/Sites/tallybook2/web/index.html",
+		"/Users/azrael/Sites/demopange/demo.html",
+		"/Users/azrael/Sites/demopange/css/style.css",
+		"/Users/azrael/Sites/demopange/index.html",
+		"/Users/azrael/Sites/demopange/js/demo.js",
+		"/Users/azrael/Sites/tallybook2/prettify.css",
+		"/Users/azrael/Sites/tallybook2/public/prettify.js",
+		"/Users/azrael/Sites/demopange/css/prettify.css",
+		"/Users/azrael/Downloads/google-code-prettify/src/prettify.js",
+		"/Users/azrael/Sites/demopange/js/prettify.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/jquery.syntax.core.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/jquery.syntax.layout.editor.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/base/jquery.syntax.brush.css.css",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/base/jquery.syntax.core.css",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/base/jquery.syntax.layout.editor.css",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/base/theme.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/jquery.syntax.min.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/public/jquery.syntax.brush.css.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/source/jquery.syntax.core.js",
+		"/Users/azrael/Desktop/ace/ace/build_support/mini_require.js",
+		"/Users/azrael/Desktop/ace/ace/build/src/ace-uncompressed-noconflict.js",
+		"/Users/azrael/Downloads/ioquatix-jquery-syntax-ac0487e/source/jquery.syntax.js",
+		"/Users/azrael/Desktop/ace/ace/build/src/ace.js",
+		"/Users/azrael/Desktop/ace/ace/build/src/ace-compat.js",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.config.js",
+		"/Users/azrael/Sites/tallybook2/publish.sh",
+		"/Users/azrael/Sites/tallybook2/build.js",
+		"/Users/azrael/Sites/tallybook2/publish",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.controller.js",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.view.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.browser.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.util.debounce.js",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/azrael/Desktop/demopange/index.html",
+		"/Users/azrael/Desktop/demopange/css/style.css",
+		"/Users/azrael/Desktop/demopange/js/demo.js",
+		"/Users/azrael/Desktop/demopange/demo.html",
+		"/Users/azrael/Desktop/demo.js",
+		"/Users/azrael/Sites/tallybook2/resource/convert.sql",
+		"/Users/azrael/Desktop/style.css",
+		"/Users/azrael/Desktop/common.js",
+		"/Users/azrael/Sites/tallybook2/server/check-right.php",
+		"/Users/azrael/Sites/tallybook/check-right.php",
+		"/Users/azrael/Sites/tallybook/check-login.php",
+		"/Users/azrael/Desktop/Test/index.php",
+		"/Users/azrael/Sites/tallybook2/server/service/add_bill.php",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.date.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.number.js",
+		"/Users/azrael/Sites/tallybook2/zTool/src/z.dom.ellipsis.js",
+		"/Users/azrael/Sites/tallybook2/zTool/tools/build.xml",
+		"/Users/azrael/Sites/tallybook2/zTool/public/ztool.all.js",
+		"/Users/azrael/Sites/tallybook2/zTool/public/ztool.all.compressed.js",
+		"/Users/azrael/Sites/tallybook2/zTool/z.util.Collection.js",
+		"/Users/azrael/Sites/tallybook2/zTool/build.js",
+		"/Users/azrael/Sites/tallybook2/zTool/z.all.js",
+		"/Users/azrael/Desktop/Test/index.html",
+		"/Users/azrael/Desktop/Test/css3-border-triangle-demo.html",
+		"/Users/azrael/Desktop/Test/css3-border-triangle.html",
+		"/Users/azrael/Desktop/Test/css3-frame-loading-demo.html",
+		"/Users/azrael/Sites/tallybook/management.php",
+		"/Users/azrael/Sites/tallybook/statistics.php",
+		"/Users/azrael/Sites/tallybook/build.js",
+		"/Users/azrael/Sites/tallybook/public/temp/js/tallybook.all.js",
+		"/Users/azrael/Sites/tallybook/public/temp/js/management.all.js",
+		"/Users/azrael/Sites/tallybook/js/az.json.js",
+		"/Users/azrael/Sites/tallybook/index.php",
+		"/Users/azrael/Dropbox/jx/js/jx.json.js",
+		"/Users/azrael/Sites/tallybook/public/temp/js/statistics.all.js",
+		"/Users/azrael/Sites/tallybook/js/jquery.form.js",
+		"/Users/azrael/Sites/tallybook/js/jqplot.highlighter.js",
+		"/Users/azrael/Sites/tallybook/public/js/management.all.js",
+		"/Users/azrael/Sites/tallybook/public/js/statistics.all.js",
+		"/Users/azrael/Sites/tallybook/public/js/tallybook.all.js",
+		"/Users/azrael/Sites/tallybook/public/css/management.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/azrael/Downloads/SinaWeiBoSDK2/src/SinaWeiBoSDK/SinaWeiBoSDK/SinaWeiBoSDK",
+			"/Users/azrael/Sites/tallybook2/zTool",
+			"/Users/azrael/Sites/tallybook2/web/js",
+			"",
+			"list"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"extend",
+			"ctrl+shift+d",
+			"${1:10}px",
+			"border-radius",
+			".image-viewer-loading",
+			".loading",
+			"getActionTarget",
+			"-moz-(.*?;)",
+			"-webkit-",
+			"(-webkit-(transform-origin:.*?;))",
+			"(box-shadow:(.*?;))",
+			"(box-sizing:(.*?;))",
+			"(border-radius:(.*?;))",
+			"(-webkit-(\\w+:.*?;))",
+			"-webkit-\\w+:.*?;",
+			"SinaWeiBoSDK.h",
+			"SinaWeiBoSDK",
+			"font-famil",
+			"c'o'n't",
+			"debug",
+			"LIBRARY_NAME",
+			"css",
+			"tags",
+			"ta'g",
+			"tab",
+			"/zTool/",
+			"path=\"",
+			"getcheckerelement",
+			"###",
+			"accountTypeActionSwitcher",
+			"accountForm",
+			"output=\"",
+			"></script>",
+			"src=\"",
+			"script output=\"management.all.js\" type=\"text/javascript\" ",
+			"type=\"text/javascript\" ",
+			"script output=\"statistics.all.js\" src=\"",
+			"2011",
+			"2012",
+			"YEARS",
+			"account",
+			"addTime",
+			"type=\"text/javascript\" ",
+			"addTime",
+			"$pagination",
+			"addTime",
+			"occuredTime",
+			"addTime",
+			"format",
+			"getSelection",
+			"lock",
+			"cookie",
+			"setUser",
+			"addBillFailure",
+			"catesChangeTime",
+			"tagsChangeTime",
+			"account",
+			"net",
+			"addbill",
+			"GET_TAGS",
+			"newbill",
+			"addBill",
+			"J.",
+			"J",
+			"z.",
+			"DELAY_STATUS",
+			"storage.session",
+			"cookie",
+			"cookieAcc",
+			"z.cookie",
+			"z.storage",
+			"window.localStorage",
+			"cate-new",
+			"loginFromContainer",
+			"defaultStatus",
+			"\"",
+			"addran",
+			"cate-row",
+			"records",
+			"mysql",
+			"php_mysql",
+			"mysql",
+			"z.class.",
+			"content",
+			"></"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"${1:border-box}",
+			"box-sizing",
+			".loading",
+			".image-viewer-loading",
+			"",
+			"-moz-",
+			"$1-moz-$2",
+			"$1-moz-$1",
+			"$1-moz-$2",
+			"$1-moz-($2)",
+			"/zTool/src/",
+			"path=\"${src}/",
+			"path=\"${src}",
+			"javascript:void(0);",
+			"output=\"js/",
+			" />",
+			"",
+			"path path=\"${basedir}/",
+			"",
+			"path path=\"${basedir}/",
+			"",
+			"occurredTime",
+			"occuredTime",
+			"catesLastModified",
+			"tagsLastModified",
+			"LOOP_STATUS",
+			"this._storage",
+			"'",
+			"list",
+			"z.util."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/jquery.websocket.js",
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								535,
+								535
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/iguess.socket.js",
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								45
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/iguess.util.js",
+					"settings":
+					{
+						"buffer_size": 48,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/iguess.ui.js",
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/iguess.start.js",
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
+					"settings":
+					{
+						"buffer_size": 941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/iguess.index.js",
+					"settings":
+					{
+						"buffer_size": 94,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true
+}
