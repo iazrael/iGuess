@@ -4,7 +4,7 @@ Z.$package('iGuess.socket', function(z){
 
     var socketUrl = 'ws://10.66.38.35:8989/';
     socketUrl = 'ws://10.66.45.39:8088/';
-    socketUrl = 'ws://10.66.38.35:8989/iguess/bin/server.php';
+    // socketUrl = 'ws://10.66.38.35:8989/iguess/bin/server.php';
     var socket;
    
     this.init = function(){
@@ -13,16 +13,16 @@ Z.$package('iGuess.socket', function(z){
 
     this.connect = function(){
         if(!socket){
-            socket = new WebSocket(socketUrl);
-            // socket = io.connect(socketUrl);
+            // socket = new WebSocket(socketUrl);
+            socket = io.connect(socketUrl);
         }
-        socket.addEventListener('open', onSocketOpen);
-        socket.addEventListener('message', onSocketMessage);
-        socket.addEventListener('close', onSocketClose);
+        // socket.addEventListener('open', onSocketOpen);
+        // socket.addEventListener('message', onSocketMessage);
+        // socket.addEventListener('close', onSocketClose);
 
-        // socket.on('connect', onSocketOpen);
-        // socket.on('message', onSocketMessage);
-        // socket.on('disconnect', onSocketClose);
+        socket.on('connect', onSocketOpen);
+        socket.on('message', onSocketMessage);
+        socket.on('disconnect', onSocketClose);
     }
 
     this.send = function(data){
