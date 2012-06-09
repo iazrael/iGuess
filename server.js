@@ -91,12 +91,12 @@ var onMessage = {
 		if(!room.game){
 			throw('new game error');
 		}
-		room.game.start();
+		room.game.start(room);
 		var data = {
 			"qUid":room.game.qUid
 		};
 		for(var i in room.users){
-			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
 	},
 	'question': function(socket, data){

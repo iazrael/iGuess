@@ -31,7 +31,8 @@ Z.$package('iGuess.ask', function(z){
     }
 
     this.show = function(item){
-        z.dom.render($container.get(0), 'askingTmpl', item);
+        // z.dom.render($container.get(0), 'askingTmpl', item);
+        $container.removeClass('hidden');
         $container.show();
     }
 

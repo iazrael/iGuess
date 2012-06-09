@@ -32,6 +32,10 @@
 	    	getResFromStart:function(res){
 	    		console.log('get res');
 	    		console.log(res);
+	    		if(res.returnData.qUid === iGuess.model.getUid()){
+	    			iGuess.stargModuler.hide();
+	    			iGuess.ask.show();
+	    		}
 	    	},
 	    	fnStart:function(e){
 	    		console.log('star game');
@@ -58,6 +62,7 @@
 	    			iGuess.socket.send({type:'join',param:{rid:rid,uid:uid}});
 
 	    		}else{
+	    			iGuess.socket.on('getRid',t.initUrl);
 	    			iGuess.socket.send({type:'getRid',param:{uid:uid}});
 	    		}
 	    		
