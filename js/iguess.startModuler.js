@@ -12,7 +12,7 @@
 
 	    		var t=iGuess.stargModuler;
 	    		 iGuess.socket.on('getUid',t.initUid);
-	    		 iGuess.socket.on('getRid',t.initUrl);
+	    		 // iGuess.socket.on('getRid',t.initUrl);
 	    		 iGuess.socket.on('join',t.updateJoinList);
 
 	    		 iGuess.socket.send({type:'getUid'});
@@ -84,8 +84,8 @@
 				*/
 
 	    		var dataList=data.returnData.userList;
-	    		var html='';
-	    		for(var i=0;i<dataList.length;i++){
+	    		var html='', ruser;
+	    		for(var i in dataList){
 	    			var user=dataList[i];
 	    			html+=tmpl.replace('#joinImg#',t.getUserImgUrl(user.uid));
 	    		}
@@ -93,7 +93,8 @@
 	    		ulList.append(html);
 
 	    		if(iGuess.model.getUid()!=data.returnData.rUid){
-	    			iGuess.wait.show(iGuess.model.getUid());
+	    			iGuess.stargModuler.hide();
+	    			iGuess.wait.show(dataList[data.returnData.rUid]);
 	    		}
 
 	    	},

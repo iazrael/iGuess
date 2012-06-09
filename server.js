@@ -39,8 +39,8 @@ var onMessage = {
 	'getRid': function(socket, data){
 		var type = data.type;
 		var _uid = data.param.uid;
-		user = User.selectUser(_uid);
-		room = new Room(user);
+		var user = User.selectUser(_uid);
+		var room = new Room(user);
 		rooms[room.roomId] = room;
 		var data = {
 			"rid":room.roomId
@@ -51,19 +51,30 @@ var onMessage = {
 		var type = data.type;
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
-		room = Room.selectRoom(_rid);
-		room.users[_uid] = User.selectUser(_uid);
+		var room = Room.selectRoom(_rid);
+		if(!room){
+			throw('room not exsits');
+		}
+		var user = User.selectUser(_uid);
+		if(!user.login){
+			throw('user:' + _uid +' not login');
+		}
+		room.join(user);
 		var data = {
 			"rUid":room.rUid,
 			"userList":{}
 		};
+		var u, d;
 		for(var i in room.users){
-			data["userList"][room.users[i].id] = {};
-			data["userList"][room.users[i].id]["uid"] = room.users[i].id;
-			data["userList"][room.users[i].id]["nick"] = room.users[i].nick;
+			d = {};
+			u = room.users[i];
+			d['uid'] = u.id;
+			d['nick'] = u.nick;
+			data.userList[u.id] = d;
 		}
+		// console.log('json', data);
 		for(var i in room.users){
-			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
 	},
 	'start': function(socket, data){
@@ -71,21 +82,34 @@ var onMessage = {
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
 		var data = {};
-		room = Room.selectRoom(_rid);
+		var room = Room.selectRoom(_rid);
 		if(_uid != room.rUid){
-			socket.emit('message',  respond(returnCode.error.code, returnCode.error.msg, type, data));
-			return false;
+			throw('user:' + _uid + ' is not room creator');
 		}
 		room.game = new Game();
+		room.game.start();
 		var data = {
-			"rUid":room.rUid,
+			"qUid":room.game.qUid
 		};
-		var j = 0;
 		for(var i in room.users){
-			data["userList"][j]["uid"] = room.users[i].id;
-			data["userList"][j]["nick"] = room.users[i].nick;
-			j++;
+			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
+	},
+	'question': function(socket, data){
+		var type = data.type;
+		var _uid = data.param.uid;
+		var _rid = data.param.rid;
+		var question = data.param.question;
+		var data = {};
+		room = Room.selectRoom(_rid);
+		if(_uid != room.rUid){
+			
+		}
+		room.game = new Game();
+		room.game.start();
+		var data = {
+			"qUid":room.game.qUid
+		};
 		for(var i in room.users){
 			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
@@ -98,63 +122,77 @@ io.sockets.on('connection', function (socket) {
     // socket.emit('news', { hello: 'world' });
     var cb, data = JSON.parse(data);
     if(cb = onMessage[data.type]){
-		try{
+		 // try{
 			cb(socket, data);
-		}
-		catch(e){
-			console.log(data);
-			socket.emit('message', respond(returnCode.error.code, returnCode.error.msg, data.type, null));
-		}
+		 // }
+		 // catch(e){
+		 // 	console.log({'connect':e});
+		 // 	socket.emit('message', respond(returnCode.error.code, returnCode.error.msg, data.type, null));
+		 // }
     }else{
       socket.emit('message', data);
     }
   });
 
   socket.on('disconnect', function (data) {
-      console.log(data);
-	  for(var i in users){
-		var user = users[i];
-		if(user.login && user.socket == socket){
-			var room = Room.selectRoom(user.roomId);
-            console.log(user);
-			//·¿Ö÷µôÏßÁË
-			if(room.rUid == user.id){
-				for(var j in room.users){
-					users[room.users[j].id].logout();
-					room.users[j] = null;
-				}
-			}
-			//ÆäËüÍæ¼ÒµôÏß
-			else{
-				for(var j in room.users){
-					if(room.users[j].id == user.id){
-						users[room.users[j]].logout();
+	  try{
+		  console.log(data);
+		  for(var i in users){
+			var user = users[i];
+			if(user.login && user.socket == socket){
+				user.socket = null;
+				var room = Room.selectRoom(user.roomId);
+				//æˆ¿ä¸»æŽ‰çº¿äº†
+				if(room.rUid == user.id){
+					for(var j in room.users){
+						room.users[j].logout();
 						room.users[j] = null;
+						delete room.users[j];
 					}
+					rooms[roomId] = null;
+					delete rooms[roomId];
 				}
-			}
-			var n = 0;
-			for(var j in room.users){
-				if(room.users[j]){
-					n++;
-				}
-			}
-			//Ê£ÏÂÒ»ÃûÍæ¼Ò£¬²»ÄÜÔÙ¼ÌÐøÓÎÏ·ÁË
-			if(n == 1){
-				for(var j in room.users){
-					if(room.users[j]){
-						users[room.users[j]].logout();
-						room.users[j] = null;
+				//å…¶å®ƒçŽ©å®¶æŽ‰çº¿
+				else{
+					// console.log(room.users);
+					for(var j in room.users){
+						if(room.users[j].id == user.id){
+							room.users[j].logout();
+							room.users[j] = null;
+							delete room.users[j];
+						}
 					}
+					// console.log(room.users);
 				}
+				// var n = 0;
+				// for(var j in room.users){
+				// 	if(room.users[j]){
+				// 		n++;
+				// 	}
+				// }
+				//å‰©ä¸‹ä¸€åçŽ©å®¶ï¼Œä¸èƒ½å†ç»§ç»­æ¸¸æˆäº†
+				// if(n == 1){
+				// 	for(var j in room.users){
+				// 		if(room.users[j]){
+				// 			room.users[j].logout();
+				// 			room.users[j] = null;
+				// 			delete room.users[j];
+				// 		}
+				// 	}
+				// 	rooms[roomId] = null;
+				// 	delete rooms[roomId];
+				// }
+				break;
 			}
-			break;
-		}
+		  }
 	  }
+      catch(e){
+    	  // console.log({'disconnect':e});
+      }
   });
 });
 
-/****************************************/
+/**
 /*
 /*
 /*
@@ -165,7 +203,7 @@ function respond(code, msg, type, data){
 		"returnCode":code,
 		"returnMsg":msg,
 		"type":type,
-		"returnData":data,
+		"returnData":data
 	};
 	return pkg;
 }
@@ -175,25 +213,31 @@ function User(){
 	this.roomId = 0;
 	this.socket = null;
 	this.login;
+	
+	
+};
+User.prototype.logout = function(){
+	this.login = false;
+	if(this.socket){
+		try{
+			this.socket.close();
+		}catch(e){}//TODO
+		this.socket = null;
+		this.roomId = 0;
+	}
 };
 
 User.selectUser = function(uid){
 	if(uid){
 		return users[uid];
 	}
-	for(var i in users){
-		if(!users[i].login){
-			return users;
-		}
-	}
+	// for(var i in users){
+	// 	if(!users[i].login){
+	// 		return users[i];
+	// 	}
+	// }
 	return new User();
 };
-User.logout = function(){
-	this.login = false;
-	if(this.socket){
-		this.socket.close();
-	}
-}
 
 function Room(user){
 	this.maxNum = 5;
@@ -202,12 +246,17 @@ function Room(user){
 	this.lock = 0;
 	this.game = null;
     this.users = {};
+    user.roomId = this.roomId;
     this.users[user.id] = user;
-}
+};
+Room.prototype.join = function(user){
+	user.roomId = this.roomId;
+	this.users[user.id] = user;
+};
 
 Room.selectRoom = function(rid){
 	return rooms[rid];
-}
+};
 
 function Game(){
 	this.totalRound = 10;
@@ -215,12 +264,20 @@ function Game(){
 	this.question = {};
 	this.qUid = null;
 	this.gUid = null;
-}
+};
 
-Game.selectQUid = function(room){
-	for(var i in room.users){
-		if(room.users[i].id != room.rUid){
-			return room.users[i].id;
+Game.prototype.start = function(room){
+	room.lock = true;
+	var randTime = 5;
+	while(randTime--){
+		for(var i in room.users){
+			if(Math.random() > 0.2){
+				this.qUid = room.users[i].id;
+				return;
+			}
 		}
 	}
-}
+	this.qUid = room.rUid;
+	return;
+};
+
