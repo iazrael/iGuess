@@ -38,6 +38,12 @@
 	    		}
 	    	},
 	    	fnStart:function(e){
+
+	    		if($('#btn_start').hasClass('disabled')){
+	    			console.log('no join user');
+	    			return ;
+	    		}
+
 	    		console.log('star game');
 	    		var uid=iGuess.model.getUid();
 	    		iGuess.socket.send({type:'start',param:{uid:uid, rid: iGuess.model.getRoomId()}});
@@ -72,7 +78,7 @@
 
 	    		var item=data.returnData;
 	    		iGuess.model.setRoomId(item.rid);
-	    		$('#urlInput')[0].value='http://10.66.45.39/~azrael/iGuess/index.html?rid='+item.rid;
+	    		$('#urlInput')[0].value='http://10.66.45.34/~azrael/iGuess/index.html?rid='+item.rid;
 
 	    	},
 	    	updateJoinList:function(data){
@@ -98,10 +104,18 @@
 	    		var html='', ruser;
 	    		for(var i in dataList){
 	    			var user=dataList[i];
-	    			html+=tmpl.replace('#joinImg#',t.getUserImgUrl(user.uid));
+	    			if(iGuess.model.getUid()!=user.uid){
+	    				html+=tmpl.replace('#joinImg#',t.getUserImgUrl(user.uid));
+	    			}
+	    			
 	    		}
 
 	    		ulList.append(html);
+
+	    		//有好友参与后的逻辑
+	    		$('#btn_start').removeClass('disabled');
+	    		$('#btn_start').addClass('btn-primary');
+	    		$('#lb_tip').hide();
 
 	    		if(iGuess.model.getUid()!=data.returnData.rUid){
 	    			iGuess.stargModuler.hide();
