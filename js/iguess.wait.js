@@ -7,7 +7,8 @@ Z.$package('iGuess.wait', function(z){
     }
 
     this.show = function(item){
-        z.dom.render($container.get(0), 'waittingTmpl', item);
+        z.dom.render($container.get(0), 'waittingTmpl', {item: item});
+        $container.removeClass('hidden');
         $container.show();
     }
 

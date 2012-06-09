@@ -133,18 +133,26 @@
 </div>
 <!-- end 提问题ui -->
 <!-- 猜题UI -->
-<div id="main" class="hidden main-view">
+<div id="main" class="hidden full-view main-view">
     <div class="top">
+        <p>答案: 你妹</p>
         <p>提示: 是一个人名哦</p>
-        <div>提示</div>
     </div>
-
+    <div class="list">
+        <ul>
+            <li class="question">是中国人么?</li>
+            <li class="answer">不是</li>
+            <li class="question">是你妹么?</li>
+            <li class="answer">不是</li>
+            <li class="tips">B 正在猜...</li>
+        </ul>
+    </div>
 </div>
 <!-- end 猜题UI -->
     </div>
 
 <script id="waittingTmpl" type="text/plain" >
-    <p><span><%=item.quid%></span>在想问题, 请稍微等待一下咯~</p>
+    <p><span><%=item.nick%></span>在想问题, 请稍微等待一下咯~</p>
 </script>
 
 <script src="js/ztool.all.js" ></script>

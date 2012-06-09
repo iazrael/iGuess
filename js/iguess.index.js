@@ -11,7 +11,7 @@ Z.$package('iGuess.index', function(z){
 	  	iGuess.socket.on('connect',function(){
 	  		iGuess.stargModuler.init();
 	  	});
-     /*   iGuess.wait.init();
-        iGuess.ask.init();*/
+        iGuess.wait.init();
+        iGuess.ask.init();
     }   
 });
