@@ -2,7 +2,9 @@ body {
         padding-top: 60px;
         padding-bottom: 40px;
      }
-    
+.hidden{
+    display: none;
+}
 
 .startMod{
 padding-right:0px;

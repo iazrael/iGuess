@@ -85,17 +85,17 @@
         </div>
       </div>
 </div> <!--开始模块结束-->
+<!-- 参与者的等待ui -->
+<div id="waitting" class="hidden">
+</div>  
+<!-- end 参与者的等待ui -->
 
 
-  
 
     </div>
 
-<script id="templateDemo1" type="text/plain" >
-    <% for(var i = 0, item; item = list[i]; i++) { %>
-        <div><%=item.id%></div>
-    <% }   %>
-
+<script id="waittingTmpl" type="text/plain" >
+    <p><span><%=item.quid%></span>在想问题, 请稍微等待一下咯~</p>
 </script>
 
 <script src="js/ztool.all.js" ></script>
@@ -107,6 +107,8 @@
 <script src="js/iguess.ui.js" ></script>
 <script src="js/iguess.util.js" ></script>
 <script src="js/iguess.startModuler.js" ></script>
+<script src="js/iguess.model.js" ></script>
+<script src="js/iguess.wait.js" ></script>
 <script src="js/iguess.start.js" ></script>
 
 

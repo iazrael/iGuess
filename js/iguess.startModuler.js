@@ -10,6 +10,9 @@
 	    		 iGuess.socket.send({type:'getuid'});
 
 	    	},
+	    	initUid: function(data){
+	    		
+	    	},
 	    	initUrl:function(data){
 	    		var item=data;
 	    	}

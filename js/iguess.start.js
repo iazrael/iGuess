@@ -2,8 +2,4 @@
 
     iGuess.index.init();
 
-   
-
-   
-
 });
