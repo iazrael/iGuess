@@ -22,9 +22,12 @@
 	    		 $('.carousel').carousel({	//初始化 动画切换动画
   					interval: 2000
 				});
-	    		 
+
 	    		$('#btn_start').bind('click',t.fnStart);
 
+	    		$('#urlInput').bind('click',function(){
+	    			$('#urlInput').select();
+	    		})
 	    	},
 	    	getResFromStart:function(res){
 	    		console.log('get res');
@@ -67,6 +70,8 @@
 
 	    	},
 	    	updateJoinList:function(data){
+	    		console.log('updateJoinList');
+	    		
 	    		var ulList=$('#joinList');
 	    		var t=iGuess.stargModuler;
 	    		var tmpl=t.tmplLiItem;
