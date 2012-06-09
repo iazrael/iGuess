@@ -26,7 +26,8 @@ Z.$package('iGuess.socket', function(z){
     }
 
     this.send = function(data){
-        socket.send(JSON.stringify(data));
+        // socket.send(JSON.stringify(data));
+        socket.emit('message', JSON.stringify(data));
     }
 
     this.on = function(type, func){
@@ -34,17 +35,18 @@ Z.$package('iGuess.socket', function(z){
     }
 
     var onSocketOpen = function(data){
-        console.log(data);//TODO
+        console.log('connected');//TODO
     }
 
     var onSocketMessage = function(data){
+        // console.log(data);
         if(data.type){
             z.message.notify(packageContext, data.type, data);
         }
     }
 
     var onSocketClose = function(data){
-        console.log(data);//TODO
+        console.log('disconnected');//TODO
     }
 
 });
