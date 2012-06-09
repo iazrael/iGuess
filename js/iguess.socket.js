@@ -3,7 +3,7 @@ Z.$package('iGuess.socket', function(z){
     var packageContext = this;
 
     var socketUrl;// = 'ws://127.0.0.1:8989/~azrael/iGuess/server/server.php';
-    socketUrl = 'ws://10.66.45.39:8088/';
+    socketUrl = 'ws://10.66.45.34:8088/';
     var socket;
    
     this.init = function(){
@@ -43,7 +43,7 @@ Z.$package('iGuess.socket', function(z){
     }
 
     var onSocketMessage = function(data){
-        // console.log(data);
+        console.log(data);
         if(data.type){
             z.message.notify(packageContext, data.type, data);
         }

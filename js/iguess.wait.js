@@ -4,6 +4,7 @@ Z.$package('iGuess.wait', function(z){
 
     this.init = function(){
         $container = $('#waitting');
+        iGuess.socket.on('question', onQuestionCome);
     }
 
     this.show = function(item){
@@ -16,5 +17,11 @@ Z.$package('iGuess.wait', function(z){
         $container.hide();
     }
 
+    var onQuestionCome = function(data){
+        if(data.returnData.qUid !== iGuess.model.getUid()){
+            packageContext.hide();
+            iGuess.main.show();
+        }
+    }
 
 });
