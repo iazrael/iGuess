@@ -4,23 +4,32 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>iGuess</title>
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
+
 <body>
 
-<div id="wrapper" class="wrapper">
-    
+<div id="mainContainer" class="container">
+    <div  id="startModuler" > 
+    	<div id="center"> <input id="url"></input></div>
+    	<div> <button class="btn btn-primary" href="#">开始</button></div>
+    	<div id="joinUser"></div>
+
+    </div>
 </div>
+
 
 <script id="templateDemo1" type="text/plain" >
     <% for(var i = 0, item; item = list[i]; i++) { %>
         <div><%=item.id%></div>
     <% }   %>
+
 </script>
 
 <script src="js/ztool.all.js" ></script>
 <script src="js/jquery.js" ></script>
 <script src="js/jquery.websocket.js" ></script>
-
 <script src="js/iguess.index.js" ></script>
 <script src="js/iguess.socket.js" ></script>
 <script src="js/iguess.ui.js" ></script>
