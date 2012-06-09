@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>iGuess</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="javascript:void(0);">你懂的</a>
+          <div class="nav-collapse">
+        
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+  </div>
+
+<div class="container">
+ <div id="startModuler">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div  class="hero-unit startMod" >
+      	<div class="leftbar">
+	        <h1><input id="urlInput" style="height:30px;width:500px;"></input></h1>
+	        <p>把链接分享给你的好友，一起来玩猜吧</p>
+	        <p><a class="btn btn-primary btn-large">开始</a></p>
+        </div>
+        <div >
+        	<ul class="thumbnails">
+        <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+        <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+        <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+        <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+         <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+         <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+         <li class="liItem">
+          <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+          </a>
+        </li>
+      </ul>
+        </div>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>使用说明</h2>
+           <p>把链接拷贝给你的好友 </p>
+         
+        </div>
+      </div>
+</div> <!--开始模块结束-->
+<!-- 参与者的等待ui -->
+<div id="waitting" class="hidden">
+</div>
+<!-- end 参与者的等待ui -->
+<!-- 提问题ui -->
+<div id="asking" class="full-view hero-unit asking" cmd="void">
+    <h1>提问</h1>
+    <p>想一个词或一句话让别人猜</p>
+    <p><input id="question" type="text"></p>
+    <p>提示<span>(人名/地名/一句话等等)</span></p>
+    <p><textarea id="tips"></textarea></p>
+    <p>
+        <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
+    </p>
+</div>
+<!-- end 提问题ui -->
+
+
+    </div>
+
+<script id="waittingTmpl" type="text/plain" >
+    <p><span><%=item.quid%></span>在想问题, 请稍微等待一下咯~</p>
+</script>
+
+<script src="js/ztool.all.js" ></script>
+<script src="js/jquery.js" ></script>
+<script src="js/socket.io.js"></script>
+
+<script src="js/iguess.index.js" ></script>
+<script src="js/iguess.socket.js" ></script>
+<script src="js/iguess.ui.js" ></script>
+<script src="js/iguess.util.js" ></script>
+<script src="js/iguess.startModuler.js" ></script>
+<script src="js/iguess.model.js" ></script>
+<script src="js/iguess.wait.js" ></script>
+<script src="js/iguess.start.js" ></script>
+
+
