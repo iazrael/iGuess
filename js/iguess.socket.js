@@ -22,8 +22,12 @@ Z.$package('iGuess.socket', function(z){
         socket.send(JSON.stringify(data));
     }
 
+    this.on = function(type, func){
+        z.message.on(packageContext, type, func);
+    }
+
     var onSocketOpen = function(data){
-        alert('open');
+        alert('open');//TODO
     }
 
     var onSocketMessage = function(data){
@@ -33,7 +37,7 @@ Z.$package('iGuess.socket', function(z){
     }
 
     var onSocketClose = function(data){
-        alert('close');
+        alert('close');//TODO
     }
 
 });
