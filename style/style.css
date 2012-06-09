@@ -1,2 +1,26 @@
+body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+     }
+    
 
-#center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; } 
+.startMod{
+padding-right:0px;
+float:left;
+height:500px;
+width:500px;
+}
+.startMod .leftbar{
+	width:500px;
+
+}
+.startMod .rightbar{
+	width:300px;
+}
+.startMod a{
+	width:80px;
+
+.startMod li{
+	float:left;
+	width:50px;
+}
