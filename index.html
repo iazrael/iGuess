@@ -3,9 +3,9 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>iGuess</title>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
 <body>
@@ -85,19 +85,28 @@
         </div>
       </div>
 </div> <!--开始模块结束-->
+<!-- 参与者的等待ui -->
+<div id="waitting" class="hidden">
+</div>
+<!-- end 参与者的等待ui -->
+<!-- 提问题ui -->
+<div id="asking" class="full-view hero-unit asking" cmd="void">
+    <h1>提问</h1>
+    <p>想一个词或一句话让别人猜</p>
+    <p><input id="question" type="text"></p>
+    <p>提示<span>(人名/地名/一句话等等)</span></p>
+    <p><textarea id="tips"></textarea></p>
+    <p>
+        <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
+    </p>
+</div>
+<!-- end 提问题ui -->
 
-
-  
 
     </div>
 
-
-
-<script id="templateDemo1" type="text/plain" >
-    <% for(var i = 0, item; item = list[i]; i++) { %>
-        <div><%=item.id%></div>
-    <% }   %>
-
+<script id="waittingTmpl" type="text/plain" >
+    <p><span><%=item.quid%></span>在想问题, 请稍微等待一下咯~</p>
 </script>
 
 <script src="js/ztool.all.js" ></script>
@@ -109,6 +118,8 @@
 <script src="js/iguess.ui.js" ></script>
 <script src="js/iguess.util.js" ></script>
 <script src="js/iguess.startModuler.js" ></script>
+<script src="js/iguess.model.js" ></script>
+<script src="js/iguess.wait.js" ></script>
 <script src="js/iguess.start.js" ></script>
 
 

@@ -7,6 +7,9 @@ Z.$package('iGuess.index', function(z){
     	
         iGuess.socket.connect();
  
-	  	 iGuess.stargModuler.init();
+	  	iGuess.stargModuler.init();
+
+        iGuess.wait.init();
+        iGuess.ask.init();
     }   
 });

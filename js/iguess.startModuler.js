@@ -18,6 +18,9 @@
 	    		 iGuess.socket.send({type:'getrid'});
 
 	    	},
+	    	initUid: function(data){
+	    		
+	    	},
 	    	initUrl:function(data){
 	    		var item=data;
 	    		$('#urlInput')[0].value='http://iguess.com/index.html?rid='+item.rid;

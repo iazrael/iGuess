@@ -31,7 +31,11 @@ Z.$package('iGuess.socket', function(z){
     }
 
     this.on = function(type, func){
-        z.message.on(packageContext, type, func);
+        if(type && func){
+            z.message.on(packageContext, type, func);
+        }else{
+            throw type + "'s function is undefined.";
+        }
     }
 
     var onSocketOpen = function(data){
