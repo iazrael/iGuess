@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"for	for (…) {…} (Convenient)"
+			],
+			[
 				"box-s",
 				"box-shadow"
 			],
@@ -62,10 +66,6 @@
 			[
 				"li",
 				"link"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
 			],
 			[
 				"di",
@@ -335,70 +335,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "js/jquery.websocket.js",
-			"settings":
-			{
-				"buffer_size": 1259,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 597,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/iguess.socket.js",
-			"settings":
-			{
-				"buffer_size": 49,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/iguess.util.js",
-			"settings":
-			{
-				"buffer_size": 48,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/iguess.ui.js",
-			"settings":
-			{
-				"buffer_size": 41,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/iguess.start.js",
-			"settings":
-			{
-				"buffer_size": 49,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
-			"settings":
-			{
-				"buffer_size": 941,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/iguess.index.js",
-			"settings":
-			{
-				"buffer_size": 94,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -516,8 +452,18 @@
 	},
 	"file_history":
 	[
-		"/Users/azrael/Sites/tallybook2/web/js/tallybook.start.js",
+		"/Users/azrael/Sites/iGuess/js/jquery.websocket.js",
+		"/Users/azrael/Sites/iGuess/js/iguess.socket.js",
 		"/Users/azrael/Desktop/iGuess/js/jquery.websocket.js",
+		"/Users/azrael/Desktop/iGuess/js/iguess.start.js",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
+		"/Users/azrael/Desktop/iGuess/js/iguess.index.js",
+		"/Users/azrael/Desktop/iGuess/js/iguess.socket.js",
+		"/Users/azrael/Desktop/iGuess/js/iguess.util.js",
+		"/Users/azrael/Desktop/iGuess/js/iguess.ui.js",
+		"/Users/azrael/Desktop/iGuess/index.html",
+		"/Users/azrael/Desktop/iGuess/style/style.css",
+		"/Users/azrael/Sites/tallybook2/web/js/tallybook.start.js",
 		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/azrael/Desktop/blog/imatlas.blog.js",
 		"/Users/azrael/Desktop/blog/imatlas.all.js",
@@ -598,7 +544,6 @@
 		"/Users/azrael/Sites/tallybook2/build.js",
 		"/Users/azrael/Sites/tallybook2/publish",
 		"/Users/azrael/Sites/tallybook2/web/js/tallybook.controller.js",
-		"/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
 		"/Users/azrael/Sites/tallybook2/web/js/tallybook.view.js",
 		"/Users/azrael/Sites/tallybook2/zTool/src/z.browser.js",
 		"/Users/azrael/Sites/tallybook2/zTool/src/z.util.debounce.js",
@@ -634,16 +579,7 @@
 		"/Users/azrael/Sites/tallybook/build.js",
 		"/Users/azrael/Sites/tallybook/public/temp/js/tallybook.all.js",
 		"/Users/azrael/Sites/tallybook/public/temp/js/management.all.js",
-		"/Users/azrael/Sites/tallybook/js/az.json.js",
-		"/Users/azrael/Sites/tallybook/index.php",
-		"/Users/azrael/Dropbox/jx/js/jx.json.js",
-		"/Users/azrael/Sites/tallybook/public/temp/js/statistics.all.js",
-		"/Users/azrael/Sites/tallybook/js/jquery.form.js",
-		"/Users/azrael/Sites/tallybook/js/jqplot.highlighter.js",
-		"/Users/azrael/Sites/tallybook/public/js/management.all.js",
-		"/Users/azrael/Sites/tallybook/public/js/statistics.all.js",
-		"/Users/azrael/Sites/tallybook/public/js/tallybook.all.js",
-		"/Users/azrael/Sites/tallybook/public/css/management.css"
+		"/Users/azrael/Sites/tallybook/js/az.json.js"
 	],
 	"find":
 	{
@@ -798,224 +734,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/jquery.websocket.js",
-					"settings":
-					{
-						"buffer_size": 1259,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 597,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								535,
-								535
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/iguess.socket.js",
-					"settings":
-					{
-						"buffer_size": 49,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								45,
-								45
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/iguess.util.js",
-					"settings":
-					{
-						"buffer_size": 48,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								44,
-								44
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "js/iguess.ui.js",
-					"settings":
-					{
-						"buffer_size": 41,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38,
-								38
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/iguess.start.js",
-					"settings":
-					{
-						"buffer_size": 49,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								37,
-								37
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
-					"settings":
-					{
-						"buffer_size": 941,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								37,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "js/iguess.index.js",
-					"settings":
-					{
-						"buffer_size": 94,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24,
-								24
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
