@@ -110,14 +110,14 @@ var onMessage = {
 			throw('game Error or user not auth');
 		}
 		room.game.question = question;
-		room.game.selectNextGUid();
+		room.game.selectNextGUid(room);
 		var data = {
 			"tips":room.game.question['tips'],
 			"qUid":room.game.qUid,
 			"gUid":room.game.gUid
 		};
 		for(var i in room.users){
-			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
+			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
 	}
 };
