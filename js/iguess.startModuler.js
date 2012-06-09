@@ -33,7 +33,7 @@
 	    	fnStart:function(e){
 	    		console.log('star game');
 	    		var uid=iGuess.model.getUid();
-	    		iGuess.socket.send({type:'start',param:{uid:uid}});
+	    		iGuess.socket.send({type:'start',param:{uid:uid, rid: iGuess.model.getRoomId()}});
 
 	    	},
 	    	getHttpParams:function(name){
@@ -51,6 +51,7 @@
 	    			
 	    			//iGuess.wait.show();
 	    			var rid=t.getHttpParams('rid');
+	    			iGuess.model.setRoomId(rid);
 	    			iGuess.socket.send({type:'join',param:{rid:rid,uid:uid}});
 
 	    		}else{
@@ -62,7 +63,7 @@
 	    	initUrl:function(data){
 
 	    		var item=data.returnData;
-
+	    		iGuess.model.setRoomId(item.rid);
 	    		$('#urlInput')[0].value='http://10.66.45.39/~azrael/iGuess/index.html?rid='+item.rid;
 
 	    	},

@@ -41,9 +41,6 @@ var onMessage = {
 		var _uid = data.param.uid;
 		var user = User.selectUser(_uid);
 		var room = new Room(user);
-		if(!room){
-			throw('new room error');
-		}
 		rooms[room.roomId] = room;
 		var data = {
 			"rid":room.roomId
@@ -55,6 +52,9 @@ var onMessage = {
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
 		var room = Room.selectRoom(_rid);
+		if(!room){
+			throw('room not exsits');
+		}
 		var user = User.selectUser(_uid);
 		if(!user.login){
 			throw('user:' + _uid +' not login');
@@ -81,16 +81,12 @@ var onMessage = {
 		var type = data.type;
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
-		console.log(data);
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(_uid != room.rUid){
 			throw('user:' + _uid + ' is not room creator');
 		}
 		room.game = new Game();
-		if(!room.game){
-			throw('new game error');
-		}
 		room.game.start();
 		var data = {
 			"qUid":room.game.qUid
@@ -105,16 +101,14 @@ var onMessage = {
 		var _rid = data.param.rid;
 		var question = data.param.question;
 		var data = {};
-		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.qUid){
-			throw('game Error or user not auth');
+		room = Room.selectRoom(_rid);
+		if(_uid != room.rUid){
+			
 		}
-		room.game.question = question;
-		room.game.selectNextGUid();
+		room.game = new Game();
+		room.game.start();
 		var data = {
-			"tips":room.game.question['tips'],
-			"qUid":room.game.qUid,
-			"gUid":room.game.gUid
+			"qUid":room.game.qUid
 		};
 		for(var i in room.users){
 			room.users.socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
@@ -161,9 +155,13 @@ io.sockets.on('connection', function (socket) {
 				//其它玩家掉线
 				else{
 					// console.log(room.users);
-					user.logout();
-					room.users[user.id] = null;
-					delete room.users[user.id];
+					for(var j in room.users){
+						if(room.users[j].id == user.id){
+							room.users[j].logout();
+							room.users[j] = null;
+							delete room.users[j];
+						}
+					}
 					// console.log(room.users);
 				}
 				// var n = 0;
@@ -189,7 +187,7 @@ io.sockets.on('connection', function (socket) {
 		  }
 	  }
       catch(e){
-    	   console.log({'disconnect':e});
+    	  // console.log({'disconnect':e});
       }
   });
 });
@@ -215,6 +213,8 @@ function User(){
 	this.roomId = 0;
 	this.socket = null;
 	this.login;
+	
+	
 };
 User.prototype.logout = function(){
 	this.login = false;
@@ -229,11 +229,7 @@ User.prototype.logout = function(){
 
 User.selectUser = function(uid){
 	if(uid){
-		if(users[uid]){
-			return users[uid];
-		}
-		console.log(users);
-		throw('uid:' + uid + ' not exists');
+		return users[uid];
 	}
 	// for(var i in users){
 	// 	if(!users[i].login){
@@ -259,11 +255,7 @@ Room.prototype.join = function(user){
 };
 
 Room.selectRoom = function(rid){
-	if(rooms[rid]){
-		return rooms[rid];
-	}
-	console.log(rooms);
-	throw 'rid:' + rid + ' not exists';
+	return rooms[rid];
 };
 
 function Game(){
@@ -287,15 +279,5 @@ Game.prototype.start = function(room){
 	}
 	this.qUid = room.rUid;
 	return;
-};
-
-Game.prototype.selectNextGUid = function(room){
-	for(var i in room.users){
-		var u = room.users[i];
-		if(u.id != this.qUid){
-			this.gUid = u.id;
-			return;
-		}
-	}
 };
 
