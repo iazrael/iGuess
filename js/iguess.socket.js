@@ -2,9 +2,8 @@
 Z.$package('iGuess.socket', function(z){
     var packageContext = this;
 
-    var socketUrl = 'ws://10.66.38.35:8989/';
+    var socketUrl;// = 'ws://127.0.0.1:8989/~azrael/iGuess/server/server.php';
     socketUrl = 'ws://10.66.45.39:8088/';
-    // socketUrl = 'ws://10.66.38.35:8989/iguess/bin/server.php';
     var socket;
    
     this.init = function(){
@@ -40,6 +39,7 @@ Z.$package('iGuess.socket', function(z){
 
     var onSocketOpen = function(data){
         console.log('connected');//TODO
+        z.message.notify(packageContext, 'connect', data);
     }
 
     var onSocketMessage = function(data){
@@ -51,6 +51,7 @@ Z.$package('iGuess.socket', function(z){
 
     var onSocketClose = function(data){
         console.log('disconnected');//TODO
+        z.message.notify(packageContext, 'disconnect', data);
     }
 
 });
