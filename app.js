@@ -11,15 +11,35 @@ function handler (req, res) {
       res.writeHead(500);
       return res.end('Error loading ' + req.url);
     }
-
     res.writeHead(200);
     res.end(data);
   });
 }
 
+var uid = 1;
+var rid = 1;
+var onMessage = {
+  'getuid': function(socket, data){
+    socket.emit('message', { type: 'getuid', uid: uid++ });
+  },
+  'getrid': function(socket, data){
+    socket.emit('message', { type: 'getrid', rid: rid++ });
+  }
+};
+
+
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  socket.on('message', function (data) {
+    // socket.emit('news', { hello: 'world' });
+    var cb, data = JSON.parse(data);
+    if(cb = onMessage[data.type]){
+      cb(socket, data);
+    }else{
+      socket.emit('message', data);
+    }
+  });
+
+  socket.on('disconnect', function (data) {
+      // console.log(data);
   });
 });
