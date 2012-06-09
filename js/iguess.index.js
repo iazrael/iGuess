@@ -13,5 +13,6 @@ Z.$package('iGuess.index', function(z){
 	  	});
         iGuess.wait.init();
         iGuess.ask.init();
+        iGuess.main.init();
     }   
 });

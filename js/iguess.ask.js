@@ -21,13 +21,20 @@ Z.$package('iGuess.ask', function(z){
         }
     };
 
-
+    var onQuestionCome = function(data){
+        if(data.returnData.qUid === iGuess.model.getUid()){
+            packageContext.hide();
+            iGuess.main.show();
+        }
+    }
 
 
     this.init = function(){
         $container = $('#asking');
 
         z.dom.bindCommends($container.get(0), commends);
+
+        iGuess.socket.on('question', onQuestionCome);
     }
 
     this.show = function(item){

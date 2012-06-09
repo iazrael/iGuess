@@ -7,6 +7,7 @@ Z.$package('iGuess.main', function(z){
     }
 
     this.show = function(item){
+        $container.removeClass('hidden');
         $container.show();
     }
 

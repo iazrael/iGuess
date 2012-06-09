@@ -28,9 +28,6 @@ var onMessage = {
 	'getUid': function(socket, data){
 		var type = data.type;
 		var user = User.selectUser();
-		if(!user){
-			throw 'new user error';
-		}
 		user.socket = socket;
 		user.login = true;
 		var data = {
@@ -45,7 +42,7 @@ var onMessage = {
 		var user = User.selectUser(_uid);
 		var room = new Room(user);
 		if(!room){
-			throw 'new room error';
+			throw('new room error');
 		}
 		rooms[room.roomId] = room;
 		var data = {
@@ -60,7 +57,7 @@ var onMessage = {
 		var room = Room.selectRoom(_rid);
 		var user = User.selectUser(_uid);
 		if(!user.login){
-			throw 'user:' + _uid +' not login';
+			throw('user:' + _uid +' not login');
 		}
 		room.join(user);
 		var data = {
@@ -84,14 +81,15 @@ var onMessage = {
 		var type = data.type;
 		var _uid = data.param.uid;
 		var _rid = data.param.rid;
+		console.log(data);
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(_uid != room.rUid){
-			throw 'user:' + _uid + ' is not room creator';
+			throw('user:' + _uid + ' is not room creator');
 		}
 		room.game = new Game();
 		if(!room.game){
-			throw 'new game error';
+			throw('new game error');
 		}
 		room.game.start(room);
 		var data = {
@@ -109,55 +107,14 @@ var onMessage = {
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(!room.lock || _uid != room.game.qUid){
-			throw 'game Error or user not auth';
+			throw('game Error or user not auth');
 		}
 		room.game.question = question;
 		room.game.selectNextGUid(room);
 		var data = {
 			"tips":room.game.question['tips'],
 			"qUid":room.game.qUid,
-			"gUidNext":room.game.gUid
-		};
-		for(var i in room.users){
-			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
-		}
-	},
-	'guess': function(socket, data){
-		var type = data.type;
-		var _uid = data.param.uid;
-		var _rid = data.param.rid;
-		var guess = data.param.guess;
-		var data = {};
-		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.gUid){
-			throw 'game Error or user not auth';
-		}
-		var data = {
-			"guess":guess,
-			"qUid":room.game.qUid,
 			"gUid":room.game.gUid
-		};
-		for(var i in room.users){
-			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
-		}
-	},
-	'confirm': function(socket, data){
-		var type = data.type;
-		var _uid = data.param.uid;
-		var _rid = data.param.rid;
-		var confirm = data.param.confirm;
-		var data = {};
-		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.qUid){
-			throw 'game Error or user not auth';
-		}
-		room.game.selectNextGUid(room);
-		var data = {
-			"guess":guess,
-			"qUid":room.game.qUid,
-			"gUidNext":room.game.gUid,
-			"round":room.game.round,
-			"totalRound":room.game.totalRound
 		};
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
@@ -171,13 +128,13 @@ io.sockets.on('connection', function (socket) {
     // socket.emit('news', { hello: 'world' });
     var cb, data = JSON.parse(data);
     if(cb = onMessage[data.type]){
-		  try{
+		 // try{
 			cb(socket, data);
-		  }
-		  catch(e){
-		  	console.log({'connect':e});
-		  	socket.emit('message', respond(returnCode.error.code, returnCode.error.msg, data.type, null));
-		  }
+		 // }
+		 // catch(e){
+		 // 	console.log({'connect':e});
+		 // 	socket.emit('message', respond(returnCode.error.code, returnCode.error.msg, data.type, null));
+		 // }
     }else{
       socket.emit('message', data);
     }
@@ -276,7 +233,7 @@ User.selectUser = function(uid){
 			return users[uid];
 		}
 		console.log(users);
-		throw 'uid:' + uid + ' not exists';
+		throw('uid:' + uid + ' not exists');
 	}
 	// for(var i in users){
 	// 	if(!users[i].login){
@@ -297,19 +254,6 @@ function Room(user){
     this.users[user.id] = user;
 };
 Room.prototype.join = function(user){
-	if(this.lock){
-		throw 'this room:' + this.roomId + 'is lock';
-	}
-	if(user.login && this.users[user.id]){
-		throw 'uid:' + user.id + 'is in room:' + user.roomId;
-	}
-	var n = 0;
-	for(var i in this.users){
-		n++;
-	}
-	if(n > this.maxNum){
-		throw 'room:' + this.roomId + 'is full';
-	}
 	user.roomId = this.roomId;
 	this.users[user.id] = user;
 };
@@ -324,7 +268,7 @@ Room.selectRoom = function(rid){
 
 function Game(){
 	this.totalRound = 10;
-	this.round = 0;
+	this.round = 1;
 	this.question = {};
 	this.qUid = null;
 	this.gUid = null;
@@ -332,44 +276,25 @@ function Game(){
 
 Game.prototype.start = function(room){
 	room.lock = true;
-	/*var randTime = 5;
+	var randTime = 5;
 	while(randTime--){
 		for(var i in room.users){
-			if(Math.random() > 0.8){
+			if(Math.random() > 0.2){
 				this.qUid = room.users[i].id;
 				return;
 			}
 		}
-	}*/
+	}
 	this.qUid = room.rUid;
 	return;
 };
 
 Game.prototype.selectNextGUid = function(room){
-	this.round++;
-	if(this.round > this.totalRound){
-		throw "game is end";
-	}
-	var found = false;
-	for(var t = 0; t < 2; t++){
-		for(var i in room.users){
-			var u = room.users[i];
-			if(!found && u.id == this.gUid){
-				found = true;
-			}
-			if(found && u.id != this.qUid && u.id != this.gUid){
-				this.gUid = u.id;
-				return;
-			}
-		}
-	}
-	if(!this.gUid){
-		for(var i in room.users){
-			var u = room.users[i];
-			if(u.id != this.qUid){
-				this.gUid = u.id;
-				return;
-			}
+	for(var i in room.users){
+		var u = room.users[i];
+		if(u.id != this.qUid){
+			this.gUid = u.id;
+			return;
 		}
 	}
 };

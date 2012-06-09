@@ -43,7 +43,7 @@ Z.$package('iGuess.socket', function(z){
     }
 
     var onSocketMessage = function(data){
-        // console.log(data);
+        console.log(data);
         if(data.type){
             z.message.notify(packageContext, data.type, data);
         }
