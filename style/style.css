@@ -52,6 +52,9 @@ width:500px;
 .asking .tips{
     color: #999;
 }
+.asking .help-inline{
+    display: none;
+}
 
 /******** main *******/
 .main-view .list{

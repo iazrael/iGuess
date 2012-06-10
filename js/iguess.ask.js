@@ -8,6 +8,14 @@ Z.$package('iGuess.ask', function(z){
                 $tips = $('#tips');
             var ques = $ques.val(),
                 tips = $tips.val();
+            if(!ques){
+                $ques.next().show();
+                z.util.delay(2000, function(){
+                    $ques.next().hide();
+                });
+                $ques.focus();
+                return;
+            }
             var data = {
                 type: 'question',
                 param: {

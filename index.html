@@ -105,9 +105,12 @@
 <script id="askingTmpl" type="text/plain" >
   <h1>提问</h1>
     <p>想一个词或一句话让别人猜</p>
-    <p><input id="question" type="text" class="span3"></p>
+    <p>
+        <input id="question" type="text" class="span3" >
+        <span class=" label label-important" style="display: none;">请输入词语或一句话</span>
+    </p>
     <p>提示<span class="tips">(人名/地名/一句话等等)</span></p>
-    <p><textarea id="tips" class="span4"></textarea></p>
+    <p><textarea id="tips" class="span4" ></textarea></p>
     <p>
         <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
     </p>
