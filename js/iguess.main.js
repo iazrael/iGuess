@@ -119,6 +119,7 @@ Z.$package('iGuess.main', function(z){
         packageContext.updateMessageList({
             msgType: 1,
             msg: {
+                round: data.returnData.round,
                 text: data.returnData.guess
             }
         });
