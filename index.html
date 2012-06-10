@@ -41,6 +41,7 @@
         	<ul class="thumbnails" id="joinList" >
         
       </ul>
+      <div class="howto">玩法: <br/>由对方想一个词语, 如"芙蓉姐姐", 然后给你一个提示, 如"这是个人名". 你可以根据对方的提示来提问, 猜 TA 到底想的是什么. <br/>注意: 最多只能问10个问题哟.</div>
         </div>
       </div>
 
@@ -116,7 +117,9 @@
     </p>
 </script>
 <script id="waittingTmpl" type="text/plain" >
-    <p><span><%=item.nick%></span>在想问题, 请稍微等待一下咯~</p>
+    <p><div class="waitting-image"></div><h3 class="waitting-text">这个家伙正在出题, 稍等下哟...</h3></p>
+    <div class="clearfix"></div>
+    <div class="howto">玩法: <br/>由对方想一个词语, 如"芙蓉姐姐", 然后给你一个提示, 如"这是个人名". 你可以根据对方的提示来提问, 猜 TA 到底想的是什么. <br/>注意: 最多只能问10个问题哟.</div>
 </script>
 <script id="mainTopTmpl" type="text/plain" >
 <% if(utype == 1){ %>

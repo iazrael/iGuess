@@ -17,6 +17,18 @@ function handler (req, res) {
 }
 
 var uid = 1;
+var nickSet = [
+    "johnnyguo", 
+    "stonehuang", 
+    "tealin", 
+    "bridge", 
+    "Jetyu", 
+    "milochen", 
+    "puterJam", 
+    "twinliang", 
+    "yunishi", 
+    "zhichao"
+];
 var rid = 1;
 var users = {};
 var rooms = {};
@@ -149,7 +161,9 @@ var onMessage = {
 			"guess":guess,
 			"rUid":room.rUid,
 			"qUid":room.game.qUid,
-			"gUid":room.game.gUid
+			"gUid":room.game.gUid,
+			"round":room.game.round,
+			"totalRound":Game.totalRound,
 		};
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
@@ -280,7 +294,7 @@ function respond(code, msg, type, data){
 }
 function User(){
 	this.id = uid++;
-	this.nick = 'iguess_' + this.id;
+	this.nick = nickSet[this.id % nickSet.length];
 	this.roomId = 0;
 	this.socket = null;
 	this.login;
