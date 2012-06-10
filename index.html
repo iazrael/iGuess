@@ -99,18 +99,13 @@
 </div>
 <!-- end 提问题ui -->
 <!-- 猜题UI -->
-<div id="main" class="main-view hidden">
-    <div class="top">
+<div id="main" class="main-view hidden" cmd="void">
+    <div id="mainTop" class="top">
         <p>答案: 你妹</p>
         <p>提示: 是一个人名哦</p>
     </div>
-    <div class="list">
-        <ul>
-            <li class="question">是中国人么?</li>
-            <li class="answer">不是</li>
-            <li class="question">是你妹么?</li>
-            <li class="answer">不是</li>
-            <li class="tips">B 正在猜...</li>
+    <div  class="list">
+        <ul id="mainList">
         </ul>
     </div>
 </div>
@@ -120,7 +115,34 @@
 <script id="waittingTmpl" type="text/plain" >
     <p><span><%=item.nick%></span>在想问题, 请稍微等待一下咯~</p>
 </script>
-
+<script id="mainTopTmpl" type="text/plain" >
+<% if(utype == 1){ %>
+    <p>答案: <%=ques.text%></p>
+<% } %>
+    <p>提示: <%=ques.tips%></p>
+</script>
+<script id="mainListTmpl" type="text/plain" >
+<% if(msgType == 1){ %>
+  <li class="question"><%=msg.text%></li>
+<% }else if(msgType == 2){ %>
+  <li class="answer"><%=msg.text%></li>
+<% }else if(msgType == 3){ %>
+  <li class="tips"><%=msg.text%></li>
+<% }else if(msgType == 4){ %>
+  <li class="action">
+    <div>
+      <a class="btn btn-primary btn-large" cmd="yes">是</a>
+      <a class="btn btn-primary btn-large" cmd="no">否</a>
+      <a class="btn btn-primary btn-large" cmd="right">答对了</a>
+    </div>
+  </li>
+<% }else if(msgType == 5){ %>
+  <li class="input">
+    <div><input type="text"></div>
+    <div><a class="btn btn-primary btn-large" cmd="enterAnswer">确定</div></p>
+  </li>
+<% }%>
+</script>
 <script src="js/ztool.all.js" ></script>
 <script src="js/jquery.js" ></script>
 <script src="js/socket.io.js"></script>

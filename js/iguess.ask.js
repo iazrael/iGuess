@@ -6,18 +6,24 @@ Z.$package('iGuess.ask', function(z){
         enterQuestion: function(param, target, event){
             var $ques = $('#question'),
                 $tips = $('#tips');
+            var ques = $ques.val(),
+                tips = $ques.val();
             var data = {
                 type: 'question',
                 param: {
                     uid: iGuess.model.getUid(),
                     rid: iGuess.model.getRoomId(),
                     question: {
-                        answer: $ques.val(),
-                        tips: $tips.val()
+                        answer: ques,
+                        tips: tips
                     }
                 }
             };
             iGuess.socket.send(data);
+            iGuess.model.setQuestion({
+                text: ques,
+                tips: tips
+            });
         }
     };
 
