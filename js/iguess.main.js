@@ -56,7 +56,9 @@ Z.$package('iGuess.main', function(z){
     }
 
     this.updateMessageList = function(data){
-        z.dom.render($list.get(0), 'mainListTmpl', data, -1);
+        var el = $list.get(0);
+        z.dom.render(el, 'mainListTmpl', data, -1);
+        el.scrollTop = el.scrollHeight;
     }
 
     var commends = {
@@ -154,6 +156,28 @@ Z.$package('iGuess.main', function(z){
                 text: text
             }
         });
+        if(ret.end){//结束了
+            var isQuestioner = data.returnData.qUid === iGuess.model.getUid();
+            if(isQuestioner){
+                text = '看来' + iGuess.model.getGameUser().nick + '不够懂你啊';
+            }else{
+                text = '看来你不够懂' + iGuess.model.getGameAdmin().nick + '啊';
+            }
+            packageContext.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: text
+                }
+            });
+            if(isQuestioner){
+                packageContext.updateMessageList({
+                    msgType: 6,
+                    msg: {
+                    }
+                });
+            }
+            return;
+        }
         if(ret.confirm == 3){
             if(data.returnData.qUid === iGuess.model.getUid()){
                 packageContext.updateMessageList({

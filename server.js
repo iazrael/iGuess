@@ -178,7 +178,8 @@ var onMessage = {
 			"gUid":lastGUid,
 			"gUidNext":room.game.gUid,
 			"round":room.game.round,
-			"totalRound":Game.totalRound
+			"totalRound":Game.totalRound,
+			"end":room.game.status == Game.sta["end"] ? true : false,
 		};
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
