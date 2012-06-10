@@ -80,6 +80,7 @@ width:480px;
 }
 .list {
     /*counter-reset: count;*/
+
 }
 .list ul, .list li{
     list-style-type: none;
@@ -87,6 +88,8 @@ width:480px;
 #mainList{
     height: 400px;
     overflow-y: auto;
+    margin: 0;
+    padding: 0 10px;
 }
 
 /*.list .question:before{
