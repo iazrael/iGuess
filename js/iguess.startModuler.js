@@ -139,7 +139,7 @@
 	    			
 	    		}
 
-	    		ulList.append(html);
+	    		ulList.html(html);
 
 	    		//有好友参与后的逻辑
 	    		$('#btn_start').removeClass('disabled');
