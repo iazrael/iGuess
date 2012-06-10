@@ -164,7 +164,8 @@ Z.$package('iGuess.main', function(z){
                 packageContext.updateMessageList({
                     msgType: 7,
                     msg: {
-                        text: '看来' + iGuess.model.getGameUser().nick + '很懂你哟'
+                        text: '看来' + iGuess.model.getGameUser().nick + '很懂你哟',
+                        actionId:0
                     }
                 });
                 packageContext.updateMessageList({
@@ -176,7 +177,8 @@ Z.$package('iGuess.main', function(z){
                 packageContext.updateMessageList({
                     msgType: 7,
                     msg: {
-                        text: '看来你很懂' + iGuess.model.getGameAdmin().nick + '哟'
+                        text: '看来你很懂' + iGuess.model.getGameAdmin().nick + '哟',
+                        actionId:0
                     }
                 });
             }
@@ -191,6 +193,7 @@ Z.$package('iGuess.main', function(z){
                 packageContext.updateMessageList({
                     msgType: 7,
                     msg: {
+                        actionId:1,
                         text: text
                     }
                 });

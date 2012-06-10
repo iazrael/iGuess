@@ -141,7 +141,13 @@ var types = {
   </li>
 <% }else if(msgType == 7){ %>
   <li class="tips">
-  <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder=<%=msg.text%> disabled="">
+  	<% if(msg.actionId==1){%>
+  		<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败-_-</p> <p>看来你还不够懂ta </p></div>
+	  	</div>
+  	<%} else {%>
+  		<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜成功-_-</p> <p>看来你懂ta哦 </p></div>
+	  	</div>
+  		<%}%>
   </li>
 <% }%>
 </script>
