@@ -18,10 +18,10 @@
 	    		 iGuess.socket.send({type:'getUid'});
 	    		
 	    		 iGuess.socket.on('start',t.getResFromStart);
-
+	    		 /*
 	    		 $('.carousel').carousel({	//初始化 动画切换动画
   					interval: 2000
-				});
+				});*/
 
 	    		$('#btn_start').bind('click',t.fnStart);
 
