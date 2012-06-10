@@ -137,13 +137,13 @@ var types = {
   	<% if(msg.actionId==1){%>
   		<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败喽-_-</p> <p>看来你还不够懂TA </p></div>
 	  	</div>
-  	<%} else if(actionId==0) {%>
+  	<%} else if(msg.actionId==0) {%>
   		<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>WOW,你居然猜到了TA的心思，看来你很懂TA! </p></div>
 	  	</div>
-  		<%} else if(actionId==2){%>
+  		<%} else if(msg.actionId==2){%>
   			<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>WOW,TA居然猜到了你的心思，看来TA很懂你! </p></div>
 	  		</div>
-  		<%} else if(actionId==3){%>
+  		<%} else if(msg.actionId==3){%>
   			<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败喽-_-</p> <p>看来TA还不够懂你 </p></div>
 	  		</div>
   		<%}%>
