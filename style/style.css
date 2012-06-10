@@ -18,11 +18,14 @@ body {
     background: #fff;
 }
 
+
 .startMod{
 padding-right:0px;
 float:left;
 height:300px;
 width:500px;
+ background-image: url(img/background.jpg);
+
 }
 .startMod .leftbar{
 	width:500px;
