@@ -12,6 +12,8 @@ html,body {
 }
 .body{
     margin: 10px;
+    background-image: url(img/background.jpg);
+    border-radius: 5px;
 }
 .hidden{
     display: none;
@@ -32,12 +34,7 @@ html,body {
 .startMod{
 padding-right:0px;
 padding-left:0px;
- background-image: url(img/background.jpg);
- -webkit-box-sizing: border-box;
- -moz-box-sizing: border-box;
- -ms-box-sizing: border-box;
- -o-box-sizing: border-box;
- box-sizing: border-box;
+background: none;
 
 
 }
