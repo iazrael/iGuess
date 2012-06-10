@@ -36,13 +36,6 @@
 	    			console.log('res data error');
 	    			return;
 	    		}
-
-	    		if(res.returnData.qUid === iGuess.model.getUid()){
-	    			iGuess.stargModuler.hide();
-	    			iGuess.ask.show();
-	    			iGuess.model.setUType(1);
-	    		}
-
 	    		iGuess.model.setUserList(res.returnData.userList);
 	    		for(var i in res.returnData.userList){
 	    			var user=res.returnData.userList[i];
@@ -57,8 +50,20 @@
 	    				console.log(user);
 	    				iGuess.model.setGameAdmin(user);
 	    			}
-	    			
 	    		}
+    			iGuess.wait.hide();
+    			iGuess.main.hide();
+    			iGuess.main.reset();
+	    		if(res.returnData.qUid === iGuess.model.getUid()){
+	    			iGuess.stargModuler.hide();
+	    			// iGuess.ask.reset();
+	    			iGuess.ask.show();
+	    			iGuess.model.setUType(1);
+	    		}else{
+	    			iGuess.wait.show(iGuess.model.getGameAdmin());
+	    		}
+
+	    		
 	    	},
 	    	fnStart:function(e){
 

@@ -43,8 +43,12 @@ Z.$package('iGuess.ask', function(z){
         iGuess.socket.on('question', onQuestionCome);
     }
 
+    this.reset = function(){
+
+    }
+
     this.show = function(item){
-        // z.dom.render($container.get(0), 'askingTmpl', item);
+        z.dom.render($container.get(0), 'askingTmpl', {});
         $container.removeClass('hidden');
         $container.show();
     }
