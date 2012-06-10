@@ -4,6 +4,8 @@ Z.$package('iGuess.model', function(z){
         ques;
     var joinFriend;
     var userList;
+    var gameAdmin;
+    var gameUser;
     this.setUid = function(_uid){
         uid = _uid;
     }
@@ -56,8 +58,19 @@ Z.$package('iGuess.model', function(z){
         return ques;
     }
 
+    this.setGameUser=function(_data){
+        gameUser=_data;
+    }
+    this.getGameUser=function(_data){
+        return gameUser;
+    }
+    this.setGameAdmin=function(_data){
+        gameAdmin=_data;
+    }
 
-
+    this.getGameAdmin=function(_data){
+        return gameAdmin;
+    }
 
 
 

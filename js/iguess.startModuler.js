@@ -44,7 +44,21 @@
 	    		}
 
 	    		iGuess.model.setUserList(res.returnData.userList);
-
+	    		for(var i in res.returnData.userList){
+	    			var user=res.returnData.userList[i];
+	    			if(user.uid!=res.returnData.qUid){
+	    				//不是楼主
+	    				console.log('normal user=');
+	    				console.log(user);
+	    				iGuess.model.setGameUser(user);
+	    			}else{
+	    				//是楼主
+	    				console.log('admin user=');
+	    				console.log(user);
+	    				iGuess.model.setGameAdmin(user);
+	    			}
+	    			
+	    		}
 	    	},
 	    	fnStart:function(e){
 

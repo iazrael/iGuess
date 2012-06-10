@@ -1,4 +1,4 @@
-Z.$package('iGuess.main', function(z){
+锘縕.$package('iGuess.main', function(z){
     var packageContext = this;
     var $container,
         $top,
@@ -19,7 +19,7 @@ Z.$package('iGuess.main', function(z){
         this.updateMessageList({
             msgType: 3,
             msg: {
-                text: '等对方猜答案'
+                text: '绛夊鏂圭寽绛旀'
             }
         });
         $container.removeClass('hidden');
@@ -33,5 +33,10 @@ Z.$package('iGuess.main', function(z){
     this.updateMessageList = function(data){
         z.dom.render($list.get(0), 'mainListTmpl', data, -1);
     }
+
+    this.initConfirmAnswer=function(data){
+        
+    }
+
 
 });
