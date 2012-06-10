@@ -153,6 +153,7 @@ Z.$package('iGuess.main', function(z){
         packageContext.updateMessageList({
             msgType: 2,
             msg: {
+                confirm: ret.confirm,
                 text: text
             }
         });
