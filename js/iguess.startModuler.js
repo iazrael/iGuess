@@ -157,11 +157,11 @@
 	    		return 'img/' + img + '.jpg';
 	    	},
 	    	hide:function(callBack){
-	    		/*$('#startModuler').hide(0,function(){
+	    		$('#startModuler').hide(0,function(){
 	    			if(callBack&&typeof(callBack)=='function'){
 	    				callBack();
 	    			}
-	    		});*/
+	    		});
 	    	},
 	    	show:function(callBack){
 	    		var $el = $('#startModuler');
