@@ -80,6 +80,7 @@ width:480px;
 }
 .main-view .top{
     height: 72px;
+    margin-bottom: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -99,7 +100,12 @@ width:480px;
     margin: 0;
     padding: 0 10px;
 }
-
+#mainList li:first-child{
+    margin-top: 10px;
+}
+#mainList li:last-child{
+    margin-bottom: 10px;
+}
 /*.list .question:before{
     counter-increment: count;
     content: counter(count) '.';

@@ -76,13 +76,13 @@
 
 <script id="askingTmpl" type="text/plain" >
   <h1>出题</h1>
-    <p>想一个词语让对方猜<span class="tips">(如: 刘亦菲)</span></p>
+    <p>想一个词语让对方猜</p>
     <p>
-        <input id="question" type="text" class="span3" >
+        <input id="question" type="text" class="span3" placeholder="例如: 刘亦菲">
         <span class=" label label-important" style="display: none;">请输入一个词语</span>
     </p>
-    <p>给TA一点提示<span class="tips">(如: 这是一个明星的名字)</span></p>
-    <p><textarea id="tips" class="span4" ></textarea><span class=" label label-important" style="display: none;">不给点提示猜不出来哟</span></p>
+    <p>给TA一点提示</p>
+    <p><textarea id="tips" class="span4" placeholder="例如: 这是一个明星的名字"></textarea><span class=" label label-important" style="display: none;">不给点提示猜不出来哟</span></p>
     <p>
         <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
     </p>
@@ -133,11 +133,15 @@ var types = {
 <% }else if(msgType == 5){ %>
   <li class="input">
     <div><input type="text"><span class=" label label-important" style="display: none;"></span></div>
-    <div><a class="btn btn-primary btn-large" cmd="enterAnswer">确定</a></div>
+    <div><a class="btn btn-primary btn-large" placeholder="你猜是？" cmd="enterAnswer">确定</a></div>
   </li>
 <% }else if(msgType == 6){ %>
   <li class="action">
     <div><a class="btn btn-primary btn-large" cmd="restart">重新开始</a></div>
+  </li>
+<% }else if(msgType == 7){ %>
+  <li class="tips">
+  <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder=<%=msg.text%> disabled="">
   </li>
 <% }%>
 </script>
