@@ -22,7 +22,7 @@ body {
 .startMod{
 padding-right:0px;
 padding-left:0px;
-height:400px;
+height:472px;
 width:480px;
  background-image: url(img/background.jpg);
 
@@ -62,14 +62,13 @@ width:480px;
 
 /******** main *******/
 .main-view {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
+
 }
 .main-view .list{
-    -webkit-box-flex: 1;
     overflow-y: auto;
     /*border: 1px solid red;
-    border-width: 1px 0 1px;*/
+    border-width: 1px 0 1px;
+    */
 }
 .main-view .top{
     height: 72px;
@@ -85,6 +84,11 @@ width:480px;
 .list ul, .list li{
     list-style-type: none;
 }
+#mainList{
+    height: 400px;
+    overflow-y: auto;
+}
+
 /*.list .question:before{
     counter-increment: count;
     content: counter(count) '.';
@@ -112,3 +116,9 @@ width:480px;
     margin-top: 10px;
 }
 
+.answer{
+    text-align: right;
+}
+.answer > div{
+    display: inline-block;
+}
