@@ -19,6 +19,9 @@ Z.$package('iGuess.wait', function(z){
 
     var onQuestionCome = function(data){
         if(data.returnData.qUid !== iGuess.model.getUid()){
+            iGuess.model.setQuestion({
+                tips: data.returnData.tips
+            });
             packageContext.hide();
             iGuess.main.show();
         }

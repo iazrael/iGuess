@@ -95,8 +95,17 @@ var onMessage = {
 		}
 		room.game.start(room);
 		var data = {
-			"qUid":room.game.qUid
+			"qUid":room.game.qUid,
+			"userList":{}
 		};
+		var u, d;
+		for(var i in room.users){
+			d = {};
+			u = room.users[i];
+			d['uid'] = u.id;
+			d['nick'] = u.nick;
+			data.userList[u.id] = d;
+		}
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
@@ -287,7 +296,7 @@ User.selectUser = function(uid){
 };
 
 function Room(user){
-	this.maxNum = 5;
+	this.maxNum = 2;
 	this.roomId = rid++;
 	this.rUid = user.id;
 	this.lock = 0;

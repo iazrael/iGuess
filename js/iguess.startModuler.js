@@ -40,6 +40,7 @@
 	    		if(res.returnData.qUid === iGuess.model.getUid()){
 	    			iGuess.stargModuler.hide();
 	    			iGuess.ask.show();
+	    			iGuess.model.setUType(1);
 	    		}
 
 	    		iGuess.model.setUserList(res.returnData.userList);
