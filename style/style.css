@@ -25,7 +25,9 @@ html,body {
     display: block;
     background: #fff;
 }
-
+.navbar .brand{
+    color: #fff;
+}
 
 .startMod{
 padding-right:0px;
