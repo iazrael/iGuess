@@ -8,6 +8,10 @@ Z.$package('iGuess.main', function(z){
         $container = $('#main');
         $top = $('#mainTop');
         $list = $('#mainList');
+
+        z.dom.bindCommends($container.get(0), commends);
+
+        iGuess.socket.on('guess', onGuessCome);
     }
 
     this.show = function(item){
@@ -47,6 +51,49 @@ Z.$package('iGuess.main', function(z){
 
     this.updateMessageList = function(data){
         z.dom.render($list.get(0), 'mainListTmpl', data, -1);
+    }
+
+    var commends = {
+        enterAnswer: function(param, target, event){
+            var $inputContainer = $list.find('.input'),
+                $input = $inputContainer.find('input');
+            var text = $input.val();
+            $inputContainer.remove();
+            var data = {
+                type: 'guess',
+                param: {
+                    uid: iGuess.model.getUid(),
+                    rid: iGuess.model.getRoomId(),
+                    guess: text
+                }
+            };
+            iGuess.socket.send(data);
+        }
+    };
+
+    var onGuessCome = function(data){
+        $list.find('.tips').remove();
+        packageContext.updateMessageList({
+            msgType: 1,
+            msg: {
+                text: data.returnData.guess
+            }
+        });
+        if(data.returnData.qUid === iGuess.model.getUid()){
+            packageContext.updateMessageList({
+                msgType: 4,
+                msg: {
+                    text: '请回答'
+                }
+            });
+        }else{
+            packageContext.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: '等对方确认'
+                }
+            });
+        }
     }
 
 });
