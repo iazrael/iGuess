@@ -134,11 +134,17 @@ var types = {
 <% }else if(msgType == 7){ %>
   <li class="tips">
   	<% if(msg.actionId==1){%>
-  		<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败-_-</p> <p>看来你还不够懂ta </p></div>
+  		<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败喽-_-</p> <p>看来你还不够懂TA </p></div>
 	  	</div>
-  	<%} else {%>
-  		<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜成功-_-</p> <p>看来你懂ta哦 </p></div>
+  	<%} else if(actionId==0) {%>
+  		<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>WOW,你居然猜到了TA的心思，看来你很懂TA! </p></div>
 	  	</div>
+  		<%} else if(actionId==2){%>
+  			<div class="alert alert-info" style="height:120px;"> <div class="success-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>WOW,TA居然猜到了你的心思，看来TA很懂你! </p></div>
+	  		</div>
+  		<%} else if(actionId==3){%>
+  			<div class="alert alert-info" style="height:120px;"> <div class="fail-image" style="margin-left:0px;"></div>  <div style="float:right;margin-top:40px;"> <p>亲，猜失败喽-_-</p> <p>看来TA还不够懂你 </p></div>
+	  		</div>
   		<%}%>
   </li>
 <% }%>

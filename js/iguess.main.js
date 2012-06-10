@@ -165,7 +165,7 @@ Z.$package('iGuess.main', function(z){
                     msgType: 7,
                     msg: {
                         text: '看来' + iGuess.model.getGameUser().nick + '很懂你哟',
-                        actionId:0
+                        actionId:2
                     }
                 });
                 packageContext.updateMessageList({
@@ -185,15 +185,18 @@ Z.$package('iGuess.main', function(z){
         }else{
             if(ret.round > ret.totalRound){//结束了
                 var isQuestioner = data.returnData.qUid === iGuess.model.getUid();
+                var actionId=1;
                 if(isQuestioner){
                     text = '看来' + iGuess.model.getGameUser().nick + '不够懂你啊';
+                    actionId=3;
                 }else{
                     text = '看来你不够懂' + iGuess.model.getGameAdmin().nick + '啊';
+                    actionId=1;
                 }
                 packageContext.updateMessageList({
                     msgType: 7,
                     msg: {
-                        actionId:1,
+                        actionId:actionId,
                         text: text
                     }
                 });
