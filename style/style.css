@@ -78,10 +78,26 @@ width:480px;
     content: counter(count) '.';
 }
 
+.waitting-image{
+    background: url(../img/waitting.gif);
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.waitting-text{
+    float: left;
+    margin: 40px 0px 0px 20px;
+}
 
 
-
-
-
-
+.howto{
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid;
+    margin: 30px 10px;
+    padding: 10px;
+}
+.startMod .howto{
+    margin-top: 10px;
+    margin-left: 0;
+}
 
