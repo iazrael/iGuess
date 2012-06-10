@@ -162,7 +162,7 @@ Z.$package('iGuess.main', function(z){
         if(ret.confirm == 3){
             if(data.returnData.qUid === iGuess.model.getUid()){
                 packageContext.updateMessageList({
-                    msgType: 3,
+                    msgType: 7,
                     msg: {
                         text: '看来' + iGuess.model.getGameUser().nick + '很懂你哟'
                     }
@@ -174,7 +174,7 @@ Z.$package('iGuess.main', function(z){
                 });
             }else{
                 packageContext.updateMessageList({
-                    msgType: 3,
+                    msgType: 7,
                     msg: {
                         text: '看来你很懂' + iGuess.model.getGameAdmin().nick + '哟'
                     }
@@ -189,7 +189,7 @@ Z.$package('iGuess.main', function(z){
                     text = '看来你不够懂' + iGuess.model.getGameAdmin().nick + '啊';
                 }
                 packageContext.updateMessageList({
-                    msgType: 3,
+                    msgType: 7,
                     msg: {
                         text: text
                     }
