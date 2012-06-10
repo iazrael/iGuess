@@ -96,6 +96,7 @@
 	    			iGuess.socket.send({type:'join',param:{rid:rid,uid:uid}});
 
 	    		}else{
+	    			iGuess.stargModuler.show();
 	    			iGuess.socket.on('getRid',t.initUrl);
 	    			iGuess.socket.send({type:'getRid',param:{uid:uid}});
 	    		}
@@ -152,7 +153,8 @@
 
 	    	},
 	    	getUserImgUrl:function(uid){
-	    		return 'http://placehold.it/260x180';
+	    		var img = uid % 5 + 1;
+	    		return 'img/' + img + '.jpg';
 	    	},
 	    	hide:function(callBack){
 	    		$('#startModuler').hide(0,function(){
@@ -162,7 +164,9 @@
 	    		});
 	    	},
 	    	show:function(callBack){
-	    		$('#startModuler').show(0,function(){
+	    		var $el = $('#startModuler');
+	    		$el.removeClass('hidden');
+	    		$el.show(0,function(){
 	    			if(callBack&&typeof(callBack)=='function'){
 	    				callBack();
 	    			}

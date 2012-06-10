@@ -16,6 +16,14 @@ Z.$package('iGuess.ask', function(z){
                 $ques.focus();
                 return;
             }
+            if(!tips){
+                $tips.next().show();
+                z.util.delay(2000, function(){
+                    $tips.next().hide();
+                });
+                $tips.focus();
+                return;
+            }
             var data = {
                 type: 'question',
                 param: {

@@ -167,7 +167,7 @@ var onMessage = {
 			throw 'game Error or user not auth';
 		}
 		var lastGUid = room.game.gUid;
-		if(confirm == Game.confirm["bingo"]){
+		if(confirm == Game.confirm["bingo"] || room.game.round == Game.totalRound){
 			room.game.end();
 		}
 		room.game.selectNextGUid(room);
@@ -189,6 +189,8 @@ var onMessage = {
 
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
+	var d = new Date();
+	var startTime = d.getTime();
 	var cb, data = JSON.parse(data);
 	console.log('input',data);
     if(cb = onMessage[data.type]){
@@ -202,6 +204,8 @@ io.sockets.on('connection', function (socket) {
     }else{
       socket.emit('message', data);
     }
+    var costTime = d.getTime() - startTime;
+    console.log('costTime:' + costTime + 'ms');
   });
 
   socket.on('disconnect', function (data) {
@@ -330,7 +334,7 @@ Room.prototype.join = function(user){
 	for(var i in this.users){
 		n++;
 	}
-	if(n > Room.maxNum){
+	if(n + 1 > Room.maxNum){
 		throw 'room:' + this.roomId + 'is full';
 	}
 	user.roomId = this.roomId;
