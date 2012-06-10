@@ -1,9 +1,17 @@
-body {
-        padding-top: 60px;
-        padding-bottom: 40px;
+html,body {
+       padding: 0;
+       margin: 0;
+       overflow: hidden;
      }
 .container{
     position: relative;
+
+}
+.navbar{
+    margin: 0 20px;
+}
+.body{
+    margin: 10px 20px;
 }
 .hidden{
     display: none;
@@ -22,8 +30,6 @@ body {
 .startMod{
 padding-right:0px;
 padding-left:0px;
-height:472px;
-width:480px;
  background-image: url(img/background.jpg);
  -webkit-box-sizing: border-box;
  -moz-box-sizing: border-box;
@@ -31,11 +37,15 @@ width:480px;
  -o-box-sizing: border-box;
  box-sizing: border-box;
 
+
 }
 .startMod .leftbar{
-	width:450px;
-    margin-left:30px;
+    margin:0 10px;
 
+}
+#urlInput{
+    height: 30px;
+    display: block;
 }
 .startMod .rightbar{
 	width:300px;

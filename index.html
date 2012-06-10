@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>iGuess</title>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/scrollbar.css">
@@ -11,30 +12,21 @@
 
 <body>
 
-<div class="navbar navbar-fixed-top ">
+<div class="container">
+  <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="javascript:void(0);">你想我猜</a>
-          <div class="nav-collapse">
-        
-          </div><!--/.nav-collapse -->
         </div>
       </div>
   </div>
-
-<div class="container">
- <div>	<!--左边导航开始-->
+ <div class="body">	<!--左边导航开始-->
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div  class="hero-unit startMod hidden" id="startModuler" >
       	<div class="leftbar">
 	        <h1>
-	        	<input id="urlInput" style="height:30px;width:400px;" class="input-xlarge" type="text">
+	        	<input id="urlInput"  class="input-xlarge" type="text">
 	        </h1>
 	        <p>把链接分享给你的好友，一起来玩猜吧</p>
 	        <p><a class="btn  btn-large disabled " id="btn_start">开始</a><span id="lb_tip" class="label label-info" style="margin-left:5px;">等待你的哥哥或者妹子点击链接加入哦</span></p>
