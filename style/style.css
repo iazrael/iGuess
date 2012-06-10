@@ -14,6 +14,7 @@ html,body {
     margin: 10px;
     background-image: url(img/background.jpg);
     border-radius: 5px;
+    overflow-y: auto;
 }
 .hidden{
     display: none;
@@ -59,7 +60,7 @@ background: none;
 
 /****** asking *********/
 .asking{
-    padding-left: 20px;
+    padding: 0 10px;
 }
 .asking p:nth-of-type(1){
     margin-top: 20px;
@@ -104,8 +105,6 @@ background: none;
     list-style-type: none;
 }
 #mainList{
-    height: 400px;
-    overflow-y: auto;
     margin: 0;
     padding: 0 10px;
 }
