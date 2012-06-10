@@ -38,19 +38,19 @@ Z.$package('iGuess.socket', function(z){
     }
 
     var onSocketOpen = function(data){
-        console.log('connected');//TODO
+        //console.log('connected');//TODO
         z.message.notify(packageContext, 'connect', data);
     }
 
     var onSocketMessage = function(data){
-        console.log(data);
+        //console.log(data);
         if(data.type){
             z.message.notify(packageContext, data.type, data);
         }
     }
 
     var onSocketClose = function(data){
-        console.log('disconnected');//TODO
+        //console.log('disconnected');//TODO
         z.message.notify(packageContext, 'disconnect', data);
     }
 

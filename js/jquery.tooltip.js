@@ -21,7 +21,7 @@
 (function($){
 
   "use strict"; // jshint ;_;
-  console.log('init carousel')
+  //console.log('init carousel')
 
  /* CAROUSEL CLASS DEFINITION
   * ========================= */

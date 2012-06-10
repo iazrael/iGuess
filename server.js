@@ -87,7 +87,7 @@ var onMessage = {
 			d['nick'] = u.nick;
 			data.userList[u.id] = d;
 		}
-		// console.log('json', data);
+		// //console.log('json', data);
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
 		}
@@ -131,7 +131,7 @@ var onMessage = {
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.qUid){
-			console.log('question', room);
+			//console.log('question', room);
 			throw 'game Error or user not auth';
 		}
 		room.game.question = question;
@@ -154,7 +154,7 @@ var onMessage = {
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.gUid){
-			console.log('guess', room);
+			//console.log('guess', room);
 			throw 'game Error or user not auth';
 		}
 		var data = {
@@ -177,7 +177,7 @@ var onMessage = {
 		var data = {};
 		var room = Room.selectRoom(_rid);
 		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.qUid){
-			console.log('confirm', room);
+			//console.log('confirm', room);
 			throw 'game Error or user not auth';
 		}
 		var lastGUid = room.game.gUid;
@@ -207,25 +207,25 @@ io.sockets.on('connection', function (socket) {
 	var d = new Date();
 	var startTime = d.getTime();
 	var cb, data = JSON.parse(data);
-	console.log('input',data);
+	//console.log('input',data);
     if(cb = onMessage[data.type]){
 		  try{
 			cb(socket, data);
 		  }
 		  catch(e){
-		  	console.log({'connect':e});
+		  	//console.log({'connect':e});
 		  	socket.emit('message', respond(returnCode.error.code, returnCode.error.msg, data.type, null));
 		  }
     }else{
       socket.emit('message', data);
     }
     var costTime = d.getTime() - startTime;
-    console.log('costTime:' + costTime + 'ms');
+    //console.log('costTime:' + costTime + 'ms');
   });
 
   socket.on('disconnect', function (data) {
 	  try{
-		  console.log(data);
+		  //console.log(data);
 		  for(var i in users){
 			var user = users[i];
 			if(user.login && user.socket == socket){
@@ -243,11 +243,11 @@ io.sockets.on('connection', function (socket) {
 				}
 				//其它玩家掉线
 				else{
-					// console.log(room.users);
+					// //console.log(room.users);
 					user.logout();
 					room.users[user.id] = null;
 					delete room.users[user.id];
-					// console.log(room.users);
+					// //console.log(room.users);
 				}
 				// var n = 0;
 				// for(var j in room.users){
@@ -272,7 +272,7 @@ io.sockets.on('connection', function (socket) {
 		  }
 	  }
       catch(e){
-    	   console.log({'disconnect':e});
+    	   //console.log({'disconnect':e});
       }
   });
 });
@@ -305,7 +305,7 @@ User.prototype.logout = function(){
 		try{
 			this.socket.close();
 		}catch(e){
-			console.log('user:' + this.id + '\' socket has close');
+			//console.log('user:' + this.id + '\' socket has close');
 		}//TODO
 		this.socket = null;
 		this.roomId = 0;
@@ -317,7 +317,7 @@ User.selectUser = function(uid){
 		if(users[uid]){
 			return users[uid];
 		}
-		console.log(users);
+		//console.log(users);
 		throw 'uid:' + uid + ' not exists';
 	}
 	// for(var i in users){
@@ -360,7 +360,7 @@ Room.selectRoom = function(rid){
 	if(rooms[rid]){
 		return rooms[rid];
 	}
-	console.log(rooms);
+	//console.log(rooms);
 	throw 'rid:' + rid + ' not exists';
 };
 

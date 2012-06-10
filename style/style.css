@@ -8,10 +8,10 @@ html,body {
 
 }
 .navbar{
-    margin: 0 20px;
+    margin: 0 10px;
 }
 .body{
-    margin: 10px 20px;
+    margin: 10px;
 }
 .hidden{
     display: none;
@@ -163,4 +163,10 @@ padding-left:0px;
 }
 .answer > div{
     display: inline-block;
+}
+
+@media (min-width: 768px){
+.input-xlarge {
+    width: 400px;
+}
 }

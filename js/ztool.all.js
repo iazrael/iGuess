@@ -151,13 +151,13 @@
             u: 'Z.util',
             o: 'Z.tools'
         }, function(z, d){
-            console.log(d.t);
+            //console.log(d.t);
         });
         Z.$package('Z.test2', function(z){
-            console.log(11111111);
+            //console.log(11111111);
         });
         Z.$package('Z.test2', function(z){
-            console.log(22222222);
+            //console.log(22222222);
         });
         Z.$package('Z.util', {
             t: 'Z.tools'
@@ -683,7 +683,7 @@
             name: 'classA'
         }, {
             init: function(){
-                console.log('A init');
+                //console.log('A init');
             },
             alertA: function(){
                 alert('A');
@@ -697,7 +697,7 @@
             
         }}, {
             init: function(){
-                console.log('B init');
+                //console.log('B init');
             },
             alertB: function(){
                 alert('B');
@@ -711,10 +711,10 @@
         
         var D = define('class', { extend: B, 'implements': [ C ]}, {
             init: function(){
-                console.log('D init');
+                //console.log('D init');
             },
             foo: function(){
-                console.log('foooooo');
+                //console.log('foooooo');
             },
             bar: function(){
             }
@@ -1127,9 +1127,9 @@
          * @example
          * loader.load('http://xxxx', function(success, imgUrl, size){
          *     if(success){
-         *         console.log('img size is: w= ' + size.width + ', h= ' + size.height);
+         *         //console.log('img size is: w= ' + size.width + ', h= ' + size.height);
          *     }else{
-         *         console.log('load img failure');
+         *         //console.log('load img failure');
          *     }
          * }, this);
          * 
@@ -1317,14 +1317,14 @@
      * @param {Object} message, 消息体, 可选
      * @example
      * var func1 = function(type, message){
-            console.log('help!!!!! don\t kill me ..... call 110.');
+            //console.log('help!!!!! don\t kill me ..... call 110.');
             throw '110';
         }
         
         z.message.on('kill', func1);
         
         z.message.on('kill', function(type, message){
-            console.log('ok, i m dead.');
+            //console.log('ok, i m dead.');
             
         });
         
@@ -2681,7 +2681,7 @@
      * @example
      * 
 function a(){
-    console.log('exec a');
+    //console.log('exec a');
 }
 var b = debounce(1000, a);
 var c = debounce(1000, a, true);
@@ -2689,7 +2689,7 @@ function testCase1(){
     var i = 0; 
     var id = setInterval(function(){
         if(i++ < 30){
-            console.log('call b' + i);
+            //console.log('call b' + i);
             b();
         }else{
             clearInterval(id)
@@ -2700,7 +2700,7 @@ function testCase2(){
     var i = 0; 
     var id = setInterval(function(){
         if(i++ < 30){
-            console.log('call c' + i);
+            //console.log('call c' + i);
             c();
         }else{
             clearInterval(id)
@@ -2903,7 +2903,7 @@ function testCase2(){
         if(!pointList[id]){
             pointList[id] = time;
             msg += '【start】';
-            console.log(msg);
+            //console.log(msg);
         }else{
             time = time - pointList[id];
             if(keep){
@@ -2913,7 +2913,7 @@ function testCase2(){
                 delete pointList[id];
             }
             msg += 'time taken: ' + time;
-            console.log(msg);
+            //console.log(msg);
             return time;
         }
     }

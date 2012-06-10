@@ -15,8 +15,8 @@ Z.$package('iGuess.index', function(z){
 	  		iGuess.stargModuler.init();
 	  	});
         
-        // $(window).resize(onResize);
-        // onResize();
+        $(window).resize(onResize);
+        onResize();
     }
 
     var onResize = function(){

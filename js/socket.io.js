@@ -219,7 +219,7 @@
   /**
    * Executes the given function when the page is loaded.
    *
-   *     io.util.load(function () { console.log('page loaded'); });
+   *     io.util.load(function () { //console.log('page loaded'); });
    *
    * @param {Function} fn
    * @api public

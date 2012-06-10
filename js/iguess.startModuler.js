@@ -8,7 +8,7 @@
 				'        </li>',
 				].join(''),
 	    	init:function(){
-	    		console.log('init stargModuler');
+	    		//console.log('init stargModuler');
 
 	    		var t=iGuess.stargModuler;
 	    		 iGuess.socket.on('getUid',t.initUid);
@@ -18,10 +18,10 @@
 	    		 iGuess.socket.send({type:'getUid'});
 	    		
 	    		 iGuess.socket.on('start',t.getResFromStart);
-	    		 /*
+
 	    		 $('.carousel').carousel({	//初始化 动画切换动画
   					interval: 2000
-				});*/
+				});
 
 	    		$('#btn_start').bind('click',t.fnStart);
 
@@ -30,10 +30,10 @@
 	    		})
 	    	},
 	    	getResFromStart:function(res){
-	    		console.log('get res');
-	    		console.log(res);
+	    		//console.log('get res');
+	    		//console.log(res);
 	    		if(!res||!res.returnData||!res.returnData.userList){
-	    			console.log('res data error');
+	    			//console.log('res data error');
 	    			return;
 	    		}
 	    		iGuess.model.setUserList(res.returnData.userList);
@@ -41,13 +41,13 @@
 	    			var user=res.returnData.userList[i];
 	    			if(user.uid!=res.returnData.qUid){
 	    				//不是楼主
-	    				console.log('normal user=');
-	    				console.log(user);
+	    				//console.log('normal user=');
+	    				//console.log(user);
 	    				iGuess.model.setGameUser(user);
 	    			}else{
 	    				//是楼主
-	    				console.log('admin user=');
-	    				console.log(user);
+	    				//console.log('admin user=');
+	    				//console.log(user);
 	    				iGuess.model.setGameAdmin(user);
 	    			}
 	    		}
@@ -68,11 +68,11 @@
 	    	fnStart:function(e){
 
 	    		if($('#btn_start').hasClass('disabled')){
-	    			console.log('no join user');
+	    			//console.log('no join user');
 	    			return ;
 	    		}
 
-	    		console.log('star game');
+	    		//console.log('star game');
 	    		var uid=iGuess.model.getUid();
 	    		iGuess.socket.send({type:'start',param:{uid:uid, rid: iGuess.model.getRoomId()}});
 
@@ -83,8 +83,8 @@
 			return decodeURIComponent(!m?"":m[2]).replace(/\+/g," ");
 			},
 	    	initUid: function(data){
-	    		console.log('initUid');
-	    		console.log(data);
+	    		//console.log('initUid');
+	    		//console.log(data);
 	    		var t=iGuess.stargModuler;
 	    		var uid=data.returnData.userInfo.uid;
 	    		iGuess.model.setUid(uid);
@@ -111,18 +111,18 @@
 
 	    	},
 	    	updateJoinList:function(data){
-	    		console.log('updateJoinList');
+	    		//console.log('updateJoinList');
 	    		
 	    		var ulList=$('#joinList');
 	    		var t=iGuess.stargModuler;
 	    		var tmpl=t.tmplLiItem;
 	    		if(!data){
-	    			console.log('updateJoinList error');
+	    			//console.log('updateJoinList error');
 	    			return ;
 	    		}
 	    		/*
-	    		console.log('updateJoinList data=');
-	    		console.log(data);
+	    		//console.log('updateJoinList data=');
+	    		//console.log(data);
 	    		
 	    		var data={};
 				data.returnData={};
@@ -139,7 +139,7 @@
 	    			
 	    		}
 
-	    		ulList.html(html);
+	    		ulList.append(html);
 
 	    		//有好友参与后的逻辑
 	    		$('#btn_start').removeClass('disabled');
