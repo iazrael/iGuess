@@ -157,28 +157,7 @@ Z.$package('iGuess.main', function(z){
                 text: text
             }
         });
-        if(ret.end){//结束了
-            var isQuestioner = data.returnData.qUid === iGuess.model.getUid();
-            if(isQuestioner){
-                text = '看来' + iGuess.model.getGameUser().nick + '不够懂你啊';
-            }else{
-                text = '看来你不够懂' + iGuess.model.getGameAdmin().nick + '啊';
-            }
-            packageContext.updateMessageList({
-                msgType: 3,
-                msg: {
-                    text: text
-                }
-            });
-            if(isQuestioner){
-                packageContext.updateMessageList({
-                    msgType: 6,
-                    msg: {
-                    }
-                });
-            }
-            return;
-        }
+        
         if(ret.confirm == 3){
             if(data.returnData.qUid === iGuess.model.getUid()){
                 packageContext.updateMessageList({
@@ -201,6 +180,28 @@ Z.$package('iGuess.main', function(z){
                 });
             }
         }else{
+            if(ret.round > ret.totalRound){//结束了
+                var isQuestioner = data.returnData.qUid === iGuess.model.getUid();
+                if(isQuestioner){
+                    text = '看来' + iGuess.model.getGameUser().nick + '不够懂你啊';
+                }else{
+                    text = '看来你不够懂' + iGuess.model.getGameAdmin().nick + '啊';
+                }
+                packageContext.updateMessageList({
+                    msgType: 3,
+                    msg: {
+                        text: text
+                    }
+                });
+                if(isQuestioner){
+                    packageContext.updateMessageList({
+                        msgType: 6,
+                        msg: {
+                        }
+                    });
+                }
+                return;
+            }
             if(data.returnData.qUid === iGuess.model.getUid()){
                 packageContext.updateMessageList({
                     msgType: 3,

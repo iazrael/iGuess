@@ -396,12 +396,12 @@ Game.prototype.end = function(){
 };
 
 Game.prototype.selectNextGUid = function(room){
+	this.round++;
 	//游戏结束了
 	if(this.status == Game.sta["end"]){
 		this.gUid = null;
 		return;
 	}
-	this.round++;
 	if(this.round > Game.totalRound){
 		throw "game is end";
 	}
