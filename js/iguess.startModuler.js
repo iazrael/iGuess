@@ -32,10 +32,18 @@
 	    	getResFromStart:function(res){
 	    		console.log('get res');
 	    		console.log(res);
+	    		if(!res||!res.returnData||!res.returnData.userList){
+	    			console.log('res data error');
+	    			return;
+	    		}
+
 	    		if(res.returnData.qUid === iGuess.model.getUid()){
 	    			iGuess.stargModuler.hide();
 	    			iGuess.ask.show();
 	    		}
+
+	    		iGuess.model.setUserList(res.returnData.userList);
+
 	    	},
 	    	fnStart:function(e){
 

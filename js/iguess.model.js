@@ -2,6 +2,7 @@ Z.$package('iGuess.model', function(z){
 
     var uid, rid, utype, status;
     var joinFriend;
+    var userList;
     this.setUid = function(_uid){
         uid = _uid;
     }
@@ -38,6 +39,12 @@ Z.$package('iGuess.model', function(z){
     }
     this.getJoinFriend=function(){
         return joinFriend
+    }
+    this.setUserList=function(_list){
+        userList=_list;
+    }
+    this.getUserList=function(){
+        return userList;
     }
 
 });
