@@ -18,10 +18,10 @@
 	    		 iGuess.socket.send({type:'getUid'});
 	    		
 	    		 iGuess.socket.on('start',t.getResFromStart);
-
+	    		 /*
 	    		 $('.carousel').carousel({	//初始化 动画切换动画
   					interval: 2000
-				});
+				});*/
 
 	    		$('#btn_start').bind('click',t.fnStart);
 
@@ -150,11 +150,11 @@
 	    		return 'http://placehold.it/260x180';
 	    	},
 	    	hide:function(callBack){
-	    		$('#startModuler').hide(0,function(){
+	    		/*$('#startModuler').hide(0,function(){
 	    			if(callBack&&typeof(callBack)=='function'){
 	    				callBack();
 	    			}
-	    		});
+	    		});*/
 	    	},
 	    	show:function(callBack){
 	    		$('#startModuler').show(0,function(){

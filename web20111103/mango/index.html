@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WindowPhonw7</title>
+<link href="base.css"  rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="logo">Windows Phone 7</div>
+<div class="container">
+        <div class="search"><input type="text" /></div>
+        <div class="header">
+             
+             <div id="time"></div>
+        </div>
+       
+        <div class="conentGroup">
+            <div class="content">
+                  <div class="bar">
+                        <div class="back"><img src="images/arrow_right.png" /></div>
+                  </div>
+                  
+                  <div class="card"><img src="images/call.png" alt="Call" /></div>
+                  <div class="card"><img src="images/message.png" alt="Messages" /></div>
+                  <div class="card"><img src="images/IE.png" alt="Internet" /></div>
+                  <div class="card"><img src="images/facebook.png" alt="Facebook" /></div>
+                  <div class="card long"><img src="images/Your pictures and videos.jpg" alt="Videos"/></div>
+                  <div class="card"><img src="images/twitter.png" alt="Twitter" /></div>
+                  <div class="card"><img src="images/mail.png" alt="Mail" /></div>
+                  
+                 
+                  
+                  <div class="clear"></div>
+            </div>
+            
+             <div class="content2 skew">
+                    <span></span>
+             </div>
+         </div>
+         
+        <div class="control">
+             <img  class="button left" src="images/arrow_left.png" />
+             <img  class="button middle" src="images/MS WINDOWS 7.png" />
+             <img  class="button right" src="images/zoom.png" />
+        </div>
+      
+</div>
+
+
+
+
+
+</body>
+</html>
+<script src="jquery-1.6.1.min.js"></script>
+
+<script>
+$(function(){  
+		  
+		   var card = $(".card");
+		   //Card——————————————————————————————————————————
+		  $(".card").click(function(){		
+			$(".search").hide();	   						 
+			$(this).fadeTo(1300,0);
+			$(".content").fadeOut(900,skew);
+			
+			function skew(){
+			$(".content2").removeClass("skew");
+			}
+			
+			var list = $(this).siblings(".card");
+			var i = 0;
+			(function cover() {
+				list.eq(i++).addClass("cover").fadeTo(90,0,cover);
+			})();
+			
+			var title = $(this).find("img").attr("alt");
+			$(".content2 span").html(title).fadeTo(900,1);
+		  })
+		   
+		   
+		   //Back——————————————————————————————————————————
+		  $(".middle").click(function(){
+		   $(".search").hide();
+		   $(".content2").addClass("skew");
+		   $(".content").fadeIn(900);
+		   
+			var j = 0;
+			(function cover2() {
+				card.eq(j++).removeClass("cover").fadeTo(90,1,cover2);
+			})();
+			
+			$(".content2 span").fadeTo(100,0);
+		  })
+		   
+		  //MultiTasking——————————————————————————————————————————
+		   $(".right").click(function(){
+			$(".search").slideToggle(300);	   
+		   })
+		   
+		    $(".left").click(function(){
+			$(".search").hide();	   						 
+			$(".content").fadeOut(900,skew);
+			
+			function skew(){
+			$(".content2").removeClass("skew");
+			}
+			
+			var list = $(".card");
+			var i = 0;
+			(function cover() {
+				list.eq(i++).addClass("cover").fadeTo(90,0,cover);
+			})();
+			
+			var text = "multiTasking";
+			$(".content2 span").html(text).fadeTo(900,1);
+		   })
+		   
+		 
+})
+           startTime(); 
+		  //时钟——————————————————————————————————————————
+		  function startTime()
+		  {
+		  var today=new Date()
+		  var h=today.getHours()
+		  var m=today.getMinutes()
+		  var s=today.getSeconds()
+		  // add a zero in front of numbers<10
+		  m=checkTime(m)
+		  s=checkTime(s)
+		  
+		  document.getElementById("time").innerHTML=h+":"+m
+		  t=setTimeout('startTime()',500)
+		  }
+		  
+		  function checkTime(i)
+		  {
+		  if (i<10) 
+			{i="0" + i}
+			return i
+		  }
+
+</script>
