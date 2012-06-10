@@ -27,7 +27,7 @@
   </div>
 
 <div class="container">
- <div id="startModuler" class="">
+ <div id="startModuler" class="hidden">
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div  class="hero-unit startMod" >
       	<div class="leftbar">
@@ -88,21 +88,12 @@
 <!-- end 参与者的等待ui -->
 <!-- 提问题ui -->
 <div id="asking" class="hidden hero-unit asking" cmd="void">
-    <h1>提问</h1>
-    <p>想一个词或一句话让别人猜</p>
-    <p><input id="question" type="text" class="span3"></p>
-    <p>提示<span class="tips">(人名/地名/一句话等等)</span></p>
-    <p><textarea id="tips" class="span4"></textarea></p>
-    <p>
-        <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
-    </p>
+    
 </div>
 <!-- end 提问题ui -->
 <!-- 猜题UI -->
 <div id="main" class="main-view hidden" cmd="void">
     <div id="mainTop" class="top">
-        <p>答案: 你妹</p>
-        <p>提示: 是一个人名哦</p>
     </div>
     <div  class="list">
         <ul id="mainList">
@@ -111,7 +102,19 @@
 </div>
 <!-- end 猜题UI -->
     </div>
-
+<script id="askingTmpl" type="text/plain" >
+  <h1>提问</h1>
+    <p>想一个词或一句话让别人猜</p>
+    <p>
+        <input id="question" type="text" class="span3" >
+        <span class=" label label-important" style="display: none;">请输入词语或一句话</span>
+    </p>
+    <p>提示<span class="tips">(人名/地名/一句话等等)</span></p>
+    <p><textarea id="tips" class="span4" ></textarea><span class=" label label-important" style="display: none;">不给点提示猜不出来哟</span></p>
+    <p>
+        <a class="btn btn-primary btn-large" cmd="enterQuestion">确定</a>
+    </p>
+</script>
 <script id="waittingTmpl" type="text/plain" >
     <p><span><%=item.nick%></span>在想问题, 请稍微等待一下咯~</p>
 </script>
@@ -138,8 +141,12 @@
   </li>
 <% }else if(msgType == 5){ %>
   <li class="input">
-    <div><input type="text"></div>
+    <div><input type="text"><span class=" label label-important" style="display: none;"></span></div>
     <div><a class="btn btn-primary btn-large" cmd="enterAnswer">确定</a></div>
+  </li>
+<% }else if(msgType == 6){ %>
+  <li class="action">
+    <div><a class="btn btn-primary btn-large" cmd="restart">重新开始</a></div>
   </li>
 <% }%>
 </script>

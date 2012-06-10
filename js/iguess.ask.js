@@ -8,6 +8,22 @@ Z.$package('iGuess.ask', function(z){
                 $tips = $('#tips');
             var ques = $ques.val(),
                 tips = $tips.val();
+            if(!ques){
+                $ques.next().show();
+                z.util.delay(2000, function(){
+                    $ques.next().hide();
+                });
+                $ques.focus();
+                return;
+            }
+            if(!tips){
+                $tips.next().show();
+                z.util.delay(2000, function(){
+                    $tips.next().hide();
+                });
+                $tips.focus();
+                return;
+            }
             var data = {
                 type: 'question',
                 param: {
@@ -43,8 +59,12 @@ Z.$package('iGuess.ask', function(z){
         iGuess.socket.on('question', onQuestionCome);
     }
 
+    this.reset = function(){
+
+    }
+
     this.show = function(item){
-        // z.dom.render($container.get(0), 'askingTmpl', item);
+        z.dom.render($container.get(0), 'askingTmpl', {});
         $container.removeClass('hidden');
         $container.show();
     }

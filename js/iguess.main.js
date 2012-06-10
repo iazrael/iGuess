@@ -15,6 +15,11 @@ Z.$package('iGuess.main', function(z){
         iGuess.socket.on('confirm', onConfirmCome);
     }
 
+    this.reset = function(){
+        $top.empty();
+        $list.empty();
+    }
+
     this.show = function(item){
         var ques = iGuess.model.getQuestion();
         var utype = iGuess.model.getUType();
@@ -26,7 +31,7 @@ Z.$package('iGuess.main', function(z){
             this.updateMessageList({
                 msgType: 3,
                 msg: {
-                    text: '等对方猜答案'
+                    text: '等' + iGuess.model.getGameUser().nick + '猜答案...'
                 }
             });
         }else{
@@ -57,8 +62,18 @@ Z.$package('iGuess.main', function(z){
     var commends = {
         enterAnswer: function(param, target, event){
             var $inputContainer = $list.find('.input'),
-                $input = $inputContainer.find('input');
+                $input = $inputContainer.find('input'),
+                $label = $inputContainer.find('.label');
             var text = $input.val();
+            if(!text){
+                $label.text('请输入问题');
+                $label.show();
+                z.util.delay(2000, function(){
+                    $label.hide();
+                });
+                $input.focus();
+                return;
+            }
             $inputContainer.remove();
             var data = {
                 type: 'guess',
@@ -78,6 +93,18 @@ Z.$package('iGuess.main', function(z){
                     uid: iGuess.model.getUid(),
                     rid: iGuess.model.getRoomId(),
                     confirm: param
+                }
+            };
+            $actionContainer.remove();
+            iGuess.socket.send(data);
+        },
+        restart: function(param, target, event){
+            var $actionContainer = $list.find('.action');
+            var data = {
+                type: 'start',
+                param: {
+                    uid: iGuess.model.getUid(),
+                    rid: iGuess.model.getRoomId()
                 }
             };
             $actionContainer.remove();
@@ -104,7 +131,7 @@ Z.$package('iGuess.main', function(z){
             packageContext.updateMessageList({
                 msgType: 3,
                 msg: {
-                    text: '等对方确认'
+                    text: '等' + iGuess.model.getGameAdmin().nick + '确认'
                 }
             });
         }
@@ -127,26 +154,48 @@ Z.$package('iGuess.main', function(z){
                 text: text
             }
         });
-
-        if(data.returnData.qUid === iGuess.model.getUid()){
-            packageContext.updateMessageList({
-                msgType: 3,
-                msg: {
-                    text: '等对方猜答案'
-                }
-            });
+        if(ret.confirm == 3){
+            if(data.returnData.qUid === iGuess.model.getUid()){
+                packageContext.updateMessageList({
+                    msgType: 3,
+                    msg: {
+                        text: '看来' + iGuess.model.getGameUser().nick + '很懂你哟'
+                    }
+                });
+                packageContext.updateMessageList({
+                    msgType: 6,
+                    msg: {
+                    }
+                });
+            }else{
+                packageContext.updateMessageList({
+                    msgType: 3,
+                    msg: {
+                        text: '看来你很懂' + iGuess.model.getGameAdmin().nick + '哟'
+                    }
+                });
+            }
         }else{
-            packageContext.updateMessageList({
-                msgType: 3,
-                msg: {
-                    text: '请提问: '
-                }
-            });
-            packageContext.updateMessageList({
-                msgType: 5,
-                msg: {
-                }
-            });
+            if(data.returnData.qUid === iGuess.model.getUid()){
+                packageContext.updateMessageList({
+                    msgType: 3,
+                    msg: {
+                        text: '等' + iGuess.model.getGameUser().nick + '猜答案...'
+                    }
+                });
+            }else{
+                packageContext.updateMessageList({
+                    msgType: 3,
+                    msg: {
+                        text: '请提问: '
+                    }
+                });
+                packageContext.updateMessageList({
+                    msgType: 5,
+                    msg: {
+                    }
+                });
+            }
         }
     }
 

@@ -55,11 +55,14 @@ width:500px;
 .asking .tips{
     color: #999;
 }
+.asking .help-inline{
+    display: none;
+}
 
 /******** main *******/
 .main-view .list{
-    border: 1px solid red;
-    border-width: 1px 0 1px;
+    /*border: 1px solid red;
+    border-width: 1px 0 1px;*/
 }
 
 .list {

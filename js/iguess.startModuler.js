@@ -36,13 +36,6 @@
 	    			console.log('res data error');
 	    			return;
 	    		}
-
-	    		if(res.returnData.qUid === iGuess.model.getUid()){
-	    			iGuess.stargModuler.hide();
-	    			iGuess.ask.show();
-	    			iGuess.model.setUType(1);
-	    		}
-
 	    		iGuess.model.setUserList(res.returnData.userList);
 	    		for(var i in res.returnData.userList){
 	    			var user=res.returnData.userList[i];
@@ -57,8 +50,20 @@
 	    				console.log(user);
 	    				iGuess.model.setGameAdmin(user);
 	    			}
-	    			
 	    		}
+    			iGuess.wait.hide();
+    			iGuess.main.hide();
+    			iGuess.main.reset();
+	    		if(res.returnData.qUid === iGuess.model.getUid()){
+	    			iGuess.stargModuler.hide();
+	    			// iGuess.ask.reset();
+	    			iGuess.ask.show();
+	    			iGuess.model.setUType(1);
+	    		}else{
+	    			iGuess.wait.show(iGuess.model.getGameAdmin());
+	    		}
+
+	    		
 	    	},
 	    	fnStart:function(e){
 
@@ -91,6 +96,7 @@
 	    			iGuess.socket.send({type:'join',param:{rid:rid,uid:uid}});
 
 	    		}else{
+	    			iGuess.stargModuler.show();
 	    			iGuess.socket.on('getRid',t.initUrl);
 	    			iGuess.socket.send({type:'getRid',param:{uid:uid}});
 	    		}
@@ -147,7 +153,8 @@
 
 	    	},
 	    	getUserImgUrl:function(uid){
-	    		return 'http://placehold.it/260x180';
+	    		var img = uid % 5 + 1;
+	    		return 'img/' + img + '.jpg';
 	    	},
 	    	hide:function(callBack){
 	    		/*$('#startModuler').hide(0,function(){
@@ -157,7 +164,9 @@
 	    		});*/
 	    	},
 	    	show:function(callBack){
-	    		$('#startModuler').show(0,function(){
+	    		var $el = $('#startModuler');
+	    		$el.removeClass('hidden');
+	    		$el.show(0,function(){
 	    			if(callBack&&typeof(callBack)=='function'){
 	    				callBack();
 	    			}

@@ -118,7 +118,8 @@ var onMessage = {
 		var question = data.param.question;
 		var data = {};
 		var room = Room.selectRoom(_rid);
-		if(!room.lock || !room.game || _uid != room.game.qUid){
+		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.qUid){
+			console.log('question', room);
 			throw 'game Error or user not auth';
 		}
 		room.game.question = question;
@@ -140,7 +141,8 @@ var onMessage = {
 		var guess = data.param.guess;
 		var data = {};
 		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.gUid){
+		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.gUid){
+			console.log('guess', room);
 			throw 'game Error or user not auth';
 		}
 		var data = {
@@ -160,17 +162,23 @@ var onMessage = {
 		var confirm = data.param.confirm;
 		var data = {};
 		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.qUid){
+		if(!room.lock || !room.game || room.game.status != Game.sta["start"] || _uid != room.game.qUid){
+			console.log('confirm', room);
 			throw 'game Error or user not auth';
+		}
+		var lastGUid = room.game.gUid;
+		if(confirm == Game.confirm["bingo"] || room.game.round == Game.totalRound){
+			room.game.end();
 		}
 		room.game.selectNextGUid(room);
 		var data = {
-			"guess":guess,
+			"confirm":confirm,
 			"rUid":room.rUid,
 			"qUid":room.game.qUid,
+			"gUid":lastGUid,
 			"gUidNext":room.game.gUid,
 			"round":room.game.round,
-			"totalRound":room.game.totalRound
+			"totalRound":Game.totalRound
 		};
 		for(var i in room.users){
 			room.users[i].socket.emit('message',  respond(returnCode.succ.code, returnCode.succ.msg, type, data));
@@ -181,6 +189,8 @@ var onMessage = {
 
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
+	var d = new Date();
+	var startTime = d.getTime();
 	var cb, data = JSON.parse(data);
 	console.log('input',data);
     if(cb = onMessage[data.type]){
@@ -194,6 +204,8 @@ io.sockets.on('connection', function (socket) {
     }else{
       socket.emit('message', data);
     }
+    var costTime = d.getTime() - startTime;
+    console.log('costTime:' + costTime + 'ms');
   });
 
   socket.on('disconnect', function (data) {
@@ -277,7 +289,9 @@ User.prototype.logout = function(){
 	if(this.socket){
 		try{
 			this.socket.close();
-		}catch(e){}//TODO
+		}catch(e){
+			console.log('user:' + this.id + '\' socket has close');
+		}//TODO
 		this.socket = null;
 		this.roomId = 0;
 	}
@@ -300,7 +314,6 @@ User.selectUser = function(uid){
 };
 
 function Room(user){
-	this.maxNum = 2;
 	this.roomId = rid++;
 	this.rUid = user.id;
 	this.lock = 0;
@@ -309,6 +322,7 @@ function Room(user){
     user.roomId = this.roomId;
     this.users[user.id] = user;
 };
+Room.maxNum = 2;
 Room.prototype.join = function(user){
 	if(this.lock){
 		throw 'this room:' + this.roomId + 'is lock';
@@ -320,7 +334,7 @@ Room.prototype.join = function(user){
 	for(var i in this.users){
 		n++;
 	}
-	if(n > this.maxNum){
+	if(n + 1 > Room.maxNum){
 		throw 'room:' + this.roomId + 'is full';
 	}
 	user.roomId = this.roomId;
@@ -336,15 +350,18 @@ Room.selectRoom = function(rid){
 };
 
 function Game(){
-	this.totalRound = 10;
 	this.round = 0;
 	this.question = {};
 	this.qUid = null;
 	this.gUid = null;
+	this.status = 0;
 };
-
+Game.totalRound = 10;
+Game.sta = {"start": 1, "end": 2};
+Game.confirm = {"yes": 1, "no": 2, "bingo": 3};
 Game.prototype.start = function(room){
 	room.lock = true;
+	this.status = Game.sta["start"];
 	/*var randTime = 5;
 	while(randTime--){
 		for(var i in room.users){
@@ -358,9 +375,19 @@ Game.prototype.start = function(room){
 	return;
 };
 
+Game.prototype.end = function(){
+	this.status = Game.sta["end"];
+	return;
+};
+
 Game.prototype.selectNextGUid = function(room){
+	//游戏结束了
+	if(this.status == Game.sta["end"]){
+		this.gUid = null;
+		return;
+	}
 	this.round++;
-	if(this.round > this.totalRound){
+	if(this.round > Game.totalRound){
 		throw "game is end";
 	}
 	var found = false;
