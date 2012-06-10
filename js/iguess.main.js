@@ -12,16 +12,31 @@ Z.$package('iGuess.main', function(z){
 
     this.show = function(item){
         var ques = iGuess.model.getQuestion();
+        var utype = iGuess.model.getUType();
         z.dom.render($top.get(0), 'mainTopTmpl', {
-            utype: iGuess.model.getUType(),
+            utype: utype,
             ques: ques
         });
-        this.updateMessageList({
-            msgType: 3,
-            msg: {
-                text: '等对方猜答案'
-            }
-        });
+        if(utype == 1){
+            this.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: '等对方猜答案'
+                }
+            });
+        }else{
+            this.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: '请提问: '
+                }
+            });
+            this.updateMessageList({
+                msgType: 5,
+                msg: {
+                }
+            });
+        }
         $container.removeClass('hidden');
         $container.show();
     }

@@ -7,7 +7,7 @@ Z.$package('iGuess.ask', function(z){
             var $ques = $('#question'),
                 $tips = $('#tips');
             var ques = $ques.val(),
-                tips = $ques.val();
+                tips = $tips.val();
             var data = {
                 type: 'question',
                 param: {
