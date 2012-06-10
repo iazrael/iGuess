@@ -95,6 +95,7 @@ var onMessage = {
 		}
 		room.game.start(room);
 		var data = {
+			"rUid":room.rUid,
 			"qUid":room.game.qUid,
 			"userList":{}
 		};
@@ -117,13 +118,14 @@ var onMessage = {
 		var question = data.param.question;
 		var data = {};
 		var room = Room.selectRoom(_rid);
-		if(!room.lock || _uid != room.game.qUid){
+		if(!room.lock || !room.game || _uid != room.game.qUid){
 			throw 'game Error or user not auth';
 		}
 		room.game.question = question;
 		room.game.selectNextGUid(room);
 		var data = {
 			"tips":room.game.question['tips'],
+			"rUid":room.rUid,
 			"qUid":room.game.qUid,
 			"gUidNext":room.game.gUid
 		};
@@ -143,6 +145,7 @@ var onMessage = {
 		}
 		var data = {
 			"guess":guess,
+			"rUid":room.rUid,
 			"qUid":room.game.qUid,
 			"gUid":room.game.gUid
 		};
@@ -163,6 +166,7 @@ var onMessage = {
 		room.game.selectNextGUid(room);
 		var data = {
 			"guess":guess,
+			"rUid":room.rUid,
 			"qUid":room.game.qUid,
 			"gUidNext":room.game.gUid,
 			"round":room.game.round,
@@ -177,8 +181,8 @@ var onMessage = {
 
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
-    // socket.emit('news', { hello: 'world' });
-    var cb, data = JSON.parse(data);
+	var cb, data = JSON.parse(data);
+	console.log('input',data);
     if(cb = onMessage[data.type]){
 		  try{
 			cb(socket, data);
