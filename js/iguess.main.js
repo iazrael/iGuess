@@ -58,6 +58,7 @@ Z.$package('iGuess.main', function(z){
     this.updateMessageList = function(data){
         var el = $list.get(0);
         z.dom.render(el, 'mainListTmpl', data, -1);
+        el = el.parentNode;
         el.scrollTop = el.scrollHeight;
     }
 
