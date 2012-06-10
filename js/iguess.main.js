@@ -12,6 +12,7 @@ Z.$package('iGuess.main', function(z){
         z.dom.bindCommends($container.get(0), commends);
 
         iGuess.socket.on('guess', onGuessCome);
+        iGuess.socket.on('confirm', onConfirmCome);
     }
 
     this.show = function(item){
@@ -68,6 +69,19 @@ Z.$package('iGuess.main', function(z){
                 }
             };
             iGuess.socket.send(data);
+        },
+        confirmAnswer: function(param, target, event){
+            var $actionContainer = $list.find('.action');
+            var data = {
+                type: 'confirm',
+                param: {
+                    uid: iGuess.model.getUid(),
+                    rid: iGuess.model.getRoomId(),
+                    confirm: param
+                }
+            };
+            $actionContainer.remove();
+            iGuess.socket.send(data);
         }
     };
 
@@ -91,6 +105,46 @@ Z.$package('iGuess.main', function(z){
                 msgType: 3,
                 msg: {
                     text: '等对方确认'
+                }
+            });
+        }
+    }
+
+    var confirmText = {
+        '1': '是的',
+        '2': '不是',
+        '3': '答对了哟'
+    };
+
+    var onConfirmCome = function(data){
+        $list.find('.tips').remove();
+        var ret = data.returnData;
+        var text = confirmText[ret.confirm];
+
+        packageContext.updateMessageList({
+            msgType: 2,
+            msg: {
+                text: text
+            }
+        });
+
+        if(data.returnData.qUid === iGuess.model.getUid()){
+            packageContext.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: '等对方猜答案'
+                }
+            });
+        }else{
+            packageContext.updateMessageList({
+                msgType: 3,
+                msg: {
+                    text: '请提问: '
+                }
+            });
+            packageContext.updateMessageList({
+                msgType: 5,
+                msg: {
                 }
             });
         }
