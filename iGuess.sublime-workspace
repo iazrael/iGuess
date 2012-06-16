@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"so",
+				"socketUrl"
+			],
+			[
+				"pa",
+				"parents  (function)"
+			],
+			[
+				"ov",
+				"overflow-y:   (property)"
+			],
+			[
+				"inn",
+				"innerHeight  (variable)"
+			],
+			[
+				"margin",
+				"margin	margin: all"
+			],
+			[
+				"p",
+				"parent  (function)"
+			],
+			[
+				"con",
+				"confirm"
+			],
+			[
+				"ret",
+				"returnData"
+			],
+			[
+				"re",
+				"returnData"
+			],
+			[
+				"list",
+				"list	list-style-type: marker"
+			],
+			[
+				"count",
+				"counter-reset:   (property)"
+			],
+			[
+				"s",
+				"socket"
+			],
+			[
 				"for",
 				"for	for (…) {…} (Convenient)"
 			],
@@ -44,10 +92,6 @@
 				"state"
 			],
 			[
-				"re",
-				"regexMatchs"
-			],
-			[
 				"back",
 				"background"
 			],
@@ -86,10 +130,6 @@
 			[
 				"_im",
 				"_imgSize"
-			],
-			[
-				"margin",
-				"_margin"
 			],
 			[
 				"res",
@@ -164,10 +204,6 @@
 				"bodyWidth"
 			],
 			[
-				"inn",
-				"innerWidth  (variable)"
-			],
-			[
 				"toggl",
 				"toggleClass  (function)"
 			],
@@ -190,10 +226,6 @@
 			[
 				"background-pos",
 				"-ms-background-position-x:   (property)"
-			],
-			[
-				"pa",
-				"pagination"
 			],
 			[
 				"ond",
@@ -435,7 +467,7 @@
 				"Indentation: Reindent Lines"
 			]
 		],
-		"width": 565.0
+		"width": 602.0
 	},
 	"console":
 	{
@@ -452,8 +484,35 @@
 	},
 	"file_history":
 	[
-		"/Users/azrael/Sites/iGuess/js/jquery.websocket.js",
 		"/Users/azrael/Sites/iGuess/js/iguess.socket.js",
+		"/Users/azrael/Sites/iGuess/js/iguess.startModuler.js",
+		"/Users/azrael/Sites/iGuess/server.js",
+		"/Users/azrael/Sites/iGuess/js/iguess.main.js",
+		"/Users/azrael/Sites/iGuess/style/style.css",
+		"/Users/azrael/Sites/iGuess/js/iguess.index.js",
+		"/Users/azrael/Sites/iGuess/index.html",
+		"/Users/azrael/Sites/iGuess/package.json",
+		"/Users/azrael/Sites/tallybook2/web/index.html",
+		"/Users/azrael/Sites/iGuess/js/iguess.model.js",
+		"/Users/azrael/Sites/iGuess/js/jquery.carousel.js",
+		"/Users/azrael/Sites/iGuess/js/jquery.tooltip.js",
+		"/Users/azrael/Sites/iGuess/js/socket.io.js",
+		"/Users/azrael/Sites/iGuess/js/iguess.ask.js",
+		"/Users/azrael/Sites/iGuess/js/iguess.result.js",
+		"/Users/azrael/Sites/iGuess/js/ztool.all.js",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/azrael/Sites/iGuess/js/iguess.wait.js",
+		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/azrael/.ssh/id_rsa.pub",
+		"/Users/azrael/Sites/iGuess/js/iguess.start.js",
+		"/Users/azrael/Sites/iGuess/client.html",
+		"/Users/azrael/Sites/iGuess/app.js",
+		"/Users/azrael/Sites/iGuess/server.php",
+		"/Users/azrael/Sites/iGuess/appjs",
+		"/Users/azrael/Sites/phpwebsocket/server.php",
+		"/Users/azrael/Sites/phpwebsocket/client.html",
+		"/Users/azrael/Sites/phpwebsocket/untitled.html",
+		"/Users/azrael/Sites/iGuess/js/jquery.websocket.js",
 		"/Users/azrael/Desktop/iGuess/js/jquery.websocket.js",
 		"/Users/azrael/Desktop/iGuess/js/iguess.start.js",
 		"/Users/azrael/Sites/tallybook2/web/js/tallybook.util.js",
@@ -464,7 +523,6 @@
 		"/Users/azrael/Desktop/iGuess/index.html",
 		"/Users/azrael/Desktop/iGuess/style/style.css",
 		"/Users/azrael/Sites/tallybook2/web/js/tallybook.start.js",
-		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/azrael/Desktop/blog/imatlas.blog.js",
 		"/Users/azrael/Desktop/blog/imatlas.all.js",
 		"/Users/azrael/Sites/tallybook2/zTool/src/z.base.js",
@@ -515,7 +573,6 @@
 		"/Users/azrael/Sites/tallybook2/build.xml",
 		"/Users/azrael/Sites/tallybook2/zTool/ztool.all.uncompressed.js",
 		"/Users/azrael/Sites/tallybook2/zTool/publish.sh",
-		"/Users/azrael/Sites/tallybook2/web/index.html",
 		"/Users/azrael/Sites/demopange/demo.html",
 		"/Users/azrael/Sites/demopange/css/style.css",
 		"/Users/azrael/Sites/demopange/index.html",
@@ -547,7 +604,6 @@
 		"/Users/azrael/Sites/tallybook2/web/js/tallybook.view.js",
 		"/Users/azrael/Sites/tallybook2/zTool/src/z.browser.js",
 		"/Users/azrael/Sites/tallybook2/zTool/src/z.util.debounce.js",
-		"/Users/azrael/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/azrael/Desktop/demopange/index.html",
 		"/Users/azrael/Desktop/demopange/css/style.css",
 		"/Users/azrael/Desktop/demopange/js/demo.js",
@@ -555,31 +611,7 @@
 		"/Users/azrael/Desktop/demo.js",
 		"/Users/azrael/Sites/tallybook2/resource/convert.sql",
 		"/Users/azrael/Desktop/style.css",
-		"/Users/azrael/Desktop/common.js",
-		"/Users/azrael/Sites/tallybook2/server/check-right.php",
-		"/Users/azrael/Sites/tallybook/check-right.php",
-		"/Users/azrael/Sites/tallybook/check-login.php",
-		"/Users/azrael/Desktop/Test/index.php",
-		"/Users/azrael/Sites/tallybook2/server/service/add_bill.php",
-		"/Users/azrael/Sites/tallybook2/zTool/src/z.date.js",
-		"/Users/azrael/Sites/tallybook2/zTool/src/z.number.js",
-		"/Users/azrael/Sites/tallybook2/zTool/src/z.dom.ellipsis.js",
-		"/Users/azrael/Sites/tallybook2/zTool/tools/build.xml",
-		"/Users/azrael/Sites/tallybook2/zTool/public/ztool.all.js",
-		"/Users/azrael/Sites/tallybook2/zTool/public/ztool.all.compressed.js",
-		"/Users/azrael/Sites/tallybook2/zTool/z.util.Collection.js",
-		"/Users/azrael/Sites/tallybook2/zTool/build.js",
-		"/Users/azrael/Sites/tallybook2/zTool/z.all.js",
-		"/Users/azrael/Desktop/Test/index.html",
-		"/Users/azrael/Desktop/Test/css3-border-triangle-demo.html",
-		"/Users/azrael/Desktop/Test/css3-border-triangle.html",
-		"/Users/azrael/Desktop/Test/css3-frame-loading-demo.html",
-		"/Users/azrael/Sites/tallybook/management.php",
-		"/Users/azrael/Sites/tallybook/statistics.php",
-		"/Users/azrael/Sites/tallybook/build.js",
-		"/Users/azrael/Sites/tallybook/public/temp/js/tallybook.all.js",
-		"/Users/azrael/Sites/tallybook/public/temp/js/management.all.js",
-		"/Users/azrael/Sites/tallybook/js/az.json.js"
+		"/Users/azrael/Desktop/common.js"
 	],
 	"find":
 	{
@@ -590,6 +622,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"*.js",
 			"/Users/azrael/Downloads/SinaWeiBoSDK2/src/SinaWeiBoSDK/SinaWeiBoSDK/SinaWeiBoSDK",
 			"/Users/azrael/Sites/tallybook2/zTool",
 			"/Users/azrael/Sites/tallybook2/web/js",
@@ -602,6 +635,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"join",
+			"console.log",
+			"howto",
+			"Round",
+			"round",
+			"Round",
+			"round",
+			"Round",
+			"round",
+			"getUserImgUrl",
+			"joinImg",
+			"wait.show",
+			"selectNextGUid",
+			"start",
+			"getResFromStart",
+			"'join'",
+			"join",
+			"logout",
+			"login",
+			"selectUser",
+			"show",
+			"join",
+			"bindcom",
+			"bing",
+			"textarea",
 			"extend",
 			"ctrl+shift+d",
 			"${1:10}px",
@@ -694,6 +752,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"//console.log",
 			"${1:border-box}",
 			"box-sizing",
 			".loading",
@@ -780,6 +839,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"model",
+				"js/iguess.model.js"
+			],
+			[
+				"socket.js",
+				"js/iguess.socket.js"
+			]
 		],
 		"width": 0.0
 	},

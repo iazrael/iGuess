@@ -2,7 +2,7 @@ var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs')
 
-app.listen(8088);
+app.listen(80088);
 
 function handler (req, res) {
   fs.readFile(__dirname + req.url,
@@ -203,6 +203,7 @@ var onMessage = {
 
 
 io.sockets.on('connection', function (socket) {
+	console.log('connection');
   socket.on('message', function (data) {
 	var d = new Date();
 	var startTime = d.getTime();
@@ -337,7 +338,7 @@ function Room(user){
     user.roomId = this.roomId;
     this.users[user.id] = user;
 };
-Room.maxNum = 2;
+Room.maxNum = 5;
 Room.prototype.join = function(user){
 	if(this.lock){
 		throw 'this room:' + this.roomId + 'is lock';
